@@ -19,7 +19,7 @@
             <a href="galeria.html">Galeria</a>
             <a href="contacto.html" class="btn-contacto">Contacto</a>
         </nav>
-        <div class="right-icon">NI</div> 
+        <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">NI</div> 
     </header>
 
     <section id="servicos" class="pacotes container">
@@ -27,8 +27,8 @@
         <p>Use a nossa ferramenta de busca avançada para encontrar a viagem que melhor se adapta a si. Oferecemos desde escapadas urbanas a grandes expedições internacionais. **Funcionalidade de Busca Avançada incluída no Pacote Advanced.**</p>
 
         <div class="search-bar">
-            <input type="text" id="destino-search" placeholder="Buscar por Destino...">
-            <select id="filtro-preco">
+            <input type="text" id="destino-search" placeholder="Buscar por Destino..." oninput="filtrarPacotesDebounced()">
+            <select id="filtro-preco" onchange="filtrarPacotesDebounced()">
                 <option value="todos">Qualquer Preço</option>
                 <option value="baixo">Abaixo de €1000</option>
                 <option value="alto">Acima de €1000</option>
@@ -43,10 +43,10 @@
     <footer class="rich-footer">
         <div class="container text-center"> 
             <div class="social-links"> 
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-soundcloud"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
             </div>
             <div class="text-xs">
                 <p>&copy; 2025 Atlas Digital Viagens. Todos os direitos reservados.</p>
