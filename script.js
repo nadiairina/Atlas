@@ -7,12 +7,36 @@ const pacotesData = [
     // Adicionar mais dados
 ];
 
+// NOVO: Constante para Limite de Preço
+const LIMITE_PRECO_BAIXO = 1000;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Apenas tenta renderizar se o elemento existir (para evitar erros noutras páginas)
     if (document.getElementById('pacote-list')) {
         renderizarPacotes(pacotesData);
+        // NOVO: Ligar eventos de filtro dinâmico
+        setupFiltrosDinamicos();
     }
 });
+
+// NOVO: Função para ligar eventos
+function setupFiltrosDinamicos() {
+    const termoBusca = document.getElementById('destino-search');
+    const filtroPreco = document.getElementById('filtro-preco');
+    const botaoBusca = document.getElementById('botao-busca'); // Mantido, mas menos essencial
+
+    if (termoBusca) {
+        termoBusca.addEventListener('input', filtrarPacotes); // Filtra enquanto digita
+    }
+    if (filtroPreco) {
+        filtroPreco.addEventListener('change', filtrarPacotes); // Filtra ao selecionar
+    }
+    // O botão 'Buscar' ainda chama a função, mas o filtro é dinâmico
+    if (botaoBusca) {
+        botaoBusca.addEventListener('click', filtrarPacotes);
+    }
+}
+
 
 // Função para renderizar os cartões de pacote (Extra: UI/UX Cartões)
 function renderizarPacotes(pacotes) {
@@ -48,6 +72,7 @@ function renderizarPacotes(pacotes) {
 
 // Função para filtrar os pacotes (Extra: Busca Avançada)
 function filtrarPacotes() {
+    // Opcional Chamar this.id === 'botao-busca' para o botão, mas 'input' e 'change' fazem o trabalho
     const termoBusca = document.getElementById('destino-search').value.toLowerCase();
     const filtroPreco = document.getElementById('filtro-preco').value;
 
@@ -55,12 +80,12 @@ function filtrarPacotes() {
         // 1. Filtrar por Destino (Busca)
         const correspondeDestino = pacote.destino.toLowerCase().includes(termoBusca);
 
-        // 2. Filtrar por Preço
+        // 2. Filtrar por Preço (USANDO A CONSTANTE)
         let correspondePreco = true;
         if (filtroPreco === 'baixo') {
-            correspondePreco = pacote.preco < 1000;
+            correspondePreco = pacote.preco < LIMITE_PRECO_BAIXO;
         } else if (filtroPreco === 'alto') {
-            correspondePreco = pacote.preco >= 1000;
+            correspondePreco = pacote.preco >= LIMITE_PRECO_BAIXO;
         }
 
         return correspondeDestino && correspondePreco;
