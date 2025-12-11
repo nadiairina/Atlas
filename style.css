@@ -8,6 +8,11 @@
     --light-border: #f3f4f6; /* Cor para borda do footer */
 }
 
+/* NOVO: Comportamento de Scroll Suave */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -59,7 +64,8 @@ nav a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
-    transition: color 0.3s; 
+    /* NOVO: Adicionado Transição */
+    transition: all 0.3s ease; 
 }
 
 nav a:hover {
@@ -103,7 +109,8 @@ h1, h2 {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 15px;
-    transition: background-color 0.3s; 
+    /* NOVO: Adicionado Transição */
+    transition: all 0.3s ease; 
 }
 
 .cta-button:hover {
@@ -122,6 +129,13 @@ h1, h2 {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    /* NOVO: Adicionado Transição */
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus, .search-bar select:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 /* 3. Pacotes de Viagem (Extra: UI/UX Cartões) */
@@ -138,11 +152,13 @@ h1, h2 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s; 
+    /* NOVO: Adicionado Transição */
+    transition: all 0.3s ease; 
 }
 
 .pacote-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais intensa */
 }
 
 .pacote-card img {
@@ -167,6 +183,15 @@ h1, h2 {
     margin-top: 10px;
 }
 
+/* NOVO: Botão de detalhes no cartão reforça a marca */
+.pacote-card .cta-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+.pacote-card .cta-button:hover {
+    background-color: #4A4384;
+}
+
 /* 5. Formulário de Contacto */
 .contacto form {
     max-width: 600px;
@@ -182,6 +207,10 @@ h1, h2 {
     border-radius: 5px;
     width: 100%;
 }
+.contacto input:focus, .contacto textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
 
 /* 4. Estilos para a Grelha da Galeria */
 .galeria-grid {
@@ -196,6 +225,12 @@ h1, h2 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* NOVO: Adicionado Transição */
+    transition: transform 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: scale(1.03);
 }
 
 .galeria-item img {
@@ -231,17 +266,19 @@ h1, h2 {
     color: var(--grey-text);
     margin: 0 10px;
     font-size: 1.5rem;
-    transition: color 0.3s;
+    /* NOVO: Adicionado Transição */
+    transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* NOVO: Cor da Marca no Hover */
 }
 
 .developer-link {
     color: var(--primary-color);
     text-decoration: underline;
-    transition: color 0.3s;
+    /* NOVO: Adicionado Transição */
+    transition: all 0.3s ease;
 }
 
 .developer-link:hover {
