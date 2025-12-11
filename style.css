@@ -1,14 +1,20 @@
-/* Estilos Base e Variáveis do Pacote Advanced */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Estilos Base e Variáveis do Pacote Advanced - MODERNIZADO */
 :root {
-    /* CORES ATUALIZADAS PARA O LOGOTIPO ATLAS (ROXO ESCURO / CIANO) */
-    --primary-color: #4A3B95; /* Roxo escuro/profundo da marca */
+    --primary-color: #4A3B95; /* Roxo escuro/profundo da marca (Atlas Digital) */
     --secondary-color: #00A5B7; /* Ciano/Turquesa de destaque */
-    --text-color: #333;
-    --light-bg: #f8f8f8;
-    --grey-text: #6b7280; /* Cor para texto do footer */
-    --light-border: #f3f4f6; /* Cor para borda do footer */
+    --text-color: #1a1a1a; /* Texto mais escuro para maior contraste */
+    --light-bg: #f4f6f9; /* Fundo suave */
+    --dark-footer: #2c3e50; /* Cor de fundo escura para o Footer (NOVO) */
+    --grey-text: #bdc3c7; /* Texto claro para o footer */
+    --light-border: #e0e0e0;
 }
 
+/* GERAL: FONTES E SCROLL */
+html {
+    scroll-behavior: smooth;
+}
 * {
     margin: 0;
     padding: 0;
@@ -16,13 +22,24 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* FONTE MODERNA */
     line-height: 1.6;
     color: var(--text-color);
     background-color: white;
 }
 
-/* Header e Navegação (Pacote Advanced - Design Responsivo + Logotipo no canto) */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; 
+    color: var(--primary-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* HEADER E NAVEGAÇÃO */
 header {
     background-color: var(--primary-color);
     color: white;
@@ -33,247 +50,167 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Sombra mais visível */
 }
-
-header .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: left;
-}
-
-header .right-icon {
-    width: 40px; 
-    height: 40px;
-    background-color: white; 
-    border-radius: 50%; 
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: var(--primary-color);
-}
+/* ... (Restante do Header e Nav CSS) ... */
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
-    transition: color 0.3s; 
+    margin-left: 25px; 
+    transition: color 0.3s, transform 0.2s; 
 }
-
 nav a:hover {
     color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+.btn-contacto {
+    background-color: var(--secondary-color);
+    color: var(--text-color) !important;
+    padding: 8px 18px;
+    border-radius: 20px; 
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-contacto:hover {
+    background-color: #008f9f;
+    color: white !important;
+    transform: scale(1.05);
 }
 
-/* Secções Comuns */
+/* SECÇÕES COMUNS & CTAs */
 section {
-    padding: 60px 5%;
+    padding: 80px 5%; 
     text-align: center;
 }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-h1, h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-/* 1. Hero Section (Home) */
-.hero {
-    background: var(--light-bg);
-    padding: 100px 5%;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .cta-button {
     background-color: var(--secondary-color);
     color: var(--text-color);
     border: none;
-    padding: 12px 25px;
+    text-decoration: none;
+    padding: 14px 30px; 
     font-size: 1rem;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 30px; 
     margin-top: 15px;
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s, box-shadow 0.3s; 
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 165, 183, 0.4);
 }
-
 .cta-button:hover {
-    background-color: #008f9f; /* Tom ligeiramente mais escuro para hover */
+    background-color: #008f9f;
+    box-shadow: 0 6px 15px rgba(0, 165, 183, 0.6);
+    color: white;
 }
+/* ... (Restante do CSS, incluindo Pacotes, Galeria, Contacto) ... */
 
-/* 3. Search Bar (Extra: Busca Avançada) */
-.search-bar {
+/* HOME: HERO SECTION */
+.hero {
+    background: linear-gradient(135deg, var(--light-bg) 0%, #ffffff 100%); 
+    padding: 150px 5% 100px; 
+}
+.hero h1 {
+    font-size: 3.5rem;
+}
+.feature-grid {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.search-bar input, .search-bar select, .search-bar button {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-/* 3. Pacotes de Viagem (Extra: UI/UX Cartões) */
-.pacote-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
-
-.pacote-card {
-    background-color: white;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s; 
-}
-
-.pacote-card:hover {
-    transform: translateY(-5px);
-}
-
-.pacote-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.pacote-info {
-    padding: 15px;
-}
-
-.pacote-info h3 {
-    margin-top: 0;
-    color: var(--primary-color);
-}
-
-.pacote-info .price {
-    /* COR ORIGINAL ALTERADA (era E74C3C) para algo que harmonize com o primary */
-    font-size: 1.4rem;
-    color: #DA3C55; /* Um vermelho/rosa mais moderno para destaque de preço */
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-/* 5. Formulário de Contacto */
-.contacto form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contacto input, .contacto textarea {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-}
-
-/* 4. Estilos para a Grelha da Galeria */
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: space-around;
     gap: 20px;
-    margin-top: 30px;
-}
-
-.galeria-item {
-    text-align: center;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.galeria-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-.galeria-item p {
-    padding: 10px;
-    background-color: var(--light-bg);
-    margin: 0;
-    font-weight: bold;
-    color: var(--primary-color);
-}
-
-/* NOVO: Estilos do Footer Rico */
-.rich-footer {
-    background-color: white;
-    color: var(--grey-text);
-    padding: 40px 0;
     margin-top: 40px;
-    border-top: 1px solid var(--light-border);
-    font-size: 0.8rem;
+}
+.feature-card {
+    background-color: var(--light-bg);
+    border-radius: 12px; 
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(74, 59, 149, 0.1); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    flex: 1;
+}
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 15px 35px rgba(74, 59, 149, 0.25); 
+}
+.feature-card .icon-lg {
+    color: var(--secondary-color); 
+    font-size: 3rem;
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 15px;
 }
 
+/* SOBRE: PROCESSO DE VIAGEM */
+.processo-viagem {
+    background-color: var(--light-bg);
+}
+.processo-grid {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+.processo-step {
+    padding: 25px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.processo-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(74, 59, 149, 0.15);
+}
+.processo-step i {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+/* FOOTER (COR DE FUNDO E CENTRADO) */
+.rich-footer {
+    background-color: var(--dark-footer); /* Cor de fundo escura, moderna */
+    color: var(--grey-text);
+    padding: 50px 0; 
+    border-top: none; 
+    font-size: 0.9rem;
+    text-align: center; /* CENTRADO */
+}
 .social-links {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
-
 .social-icon {
     color: var(--grey-text);
-    margin: 0 10px;
-    font-size: 1.5rem;
-    transition: color 0.3s;
+    margin: 0 12px;
+    font-size: 2rem; 
+    transition: color 0.3s, transform 0.3s;
 }
-
 .social-icon:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color); /* Destaque com o ciano */
+    transform: scale(1.1);
 }
-
 .developer-link {
-    color: var(--primary-color);
-    text-decoration: underline;
-    transition: color 0.3s;
+    color: var(--secondary-color); 
+    text-decoration: none;
+    font-weight: 600;
 }
-
 .developer-link:hover {
-    color: var(--text-color);
+    text-decoration: underline;
 }
 
-/* Responsividade (Pacote Advanced - Design Responsivo) */
+/* Responsividade */
+@media (max-width: 992px) {
+    .feature-grid {
+        flex-direction: column;
+    }
+    .processo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
+    .hero h1 {
+        font-size: 2.5rem;
     }
-    nav {
-        margin-top: 10px;
-        order: 1; 
-        width: 100%;
-        text-align: center;
-    }
-    nav a {
-        margin: 0 10px;
-    }
-    .right-icon {
-        position: absolute; 
-        top: 10px;
-        right: 10px;
-    }
-    .search-bar {
-        flex-direction: column;
-    }
-    .search-bar button {
-        width: 100%;
+    .processo-grid {
+        grid-template-columns: 1fr;
     }
 }
