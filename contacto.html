@@ -19,7 +19,7 @@
             <a href="galeria.html">Galeria</a>
             <a href="contacto.html" class="btn-contacto">Contacto</a>
         </nav>
-        <div class="right-icon">NI</div> 
+        <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">NI</div> 
     </header>
 
     <section id="contacto" class="contacto container">
@@ -29,10 +29,10 @@
         <p style="margin-top: 20px;">Prefere ligar? Encontre-nos em: <br>Email: info@atlasdigitalviagens.pt | Telefone: +351 9XX XXX XXX</p>
 
         <form action="#" method="POST">
-            <input type="text" placeholder="Nome" required>
-            <input type="email" placeholder="Email" required>
-            <input type="text" placeholder="Destino de Sonho / Assunto" required>
-            <textarea placeholder="Mensagem / Pergunta sobre o Pacote" required></textarea>
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="assunto" placeholder="Destino de Sonho / Assunto" required>
+            <textarea name="mensagem" placeholder="Mensagem / Pergunta sobre o Pacote" required></textarea>
             <button type="submit" class="cta-button">Enviar Pedido</button>
         </form>
     </section>
@@ -40,10 +40,10 @@
     <footer class="rich-footer">
         <div class="container text-center"> 
             <div class="social-links"> 
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" class="social-icon"><i class="fab fa-soundcloud"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" class="social-icon" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
             </div>
             <div class="text-xs">
                 <p>&copy; 2025 Atlas Digital Viagens. Todos os direitos reservados.</p>
