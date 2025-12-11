@@ -1,4 +1,166 @@
-/* Estilos para a Grelha da Galeria */
+/* Estilos Base e Variáveis do Pacote Advanced */
+:root {
+    --primary-color: #5D54A4; /* Tom roxo/lavanda para a marca (Identidade Visual) */
+    --secondary-color: #FFC300; /* Destaque */
+    --text-color: #333;
+    --light-bg: #f8f8f8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: white;
+}
+
+/* Header e Navegação (Pacote Advanced - Design Responsivo) */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s; /* Simula Animações Suaves */
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Secções Comuns */
+section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* 1. Hero Section (Home) */
+.hero {
+    background: var(--light-bg);
+    padding: 100px 5%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s; /* Simula Animações Suaves */
+}
+
+.cta-button:hover {
+    background-color: #f7b700;
+}
+
+/* 3. Search Bar (Extra: Busca Avançada) */
+.search-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.search-bar input, .search-bar select, .search-bar button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* 3. Pacotes de Viagem (Extra: UI/UX Cartões) */
+.pacote-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.pacote-card {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s; /* Simula Animações Suaves */
+}
+
+.pacote-card:hover {
+    transform: translateY(-5px);
+}
+
+.pacote-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.pacote-info {
+    padding: 15px;
+}
+
+.pacote-info h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.pacote-info .price {
+    font-size: 1.4rem;
+    color: #E74C3C;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* 5. Formulário de Contacto */
+.contacto form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacto input, .contacto textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* 4. Estilos para a Grelha da Galeria */
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -26,4 +188,24 @@
     margin: 0;
     font-weight: bold;
     color: var(--primary-color);
+}
+
+/* Responsividade (Pacote Advanced - Design Responsivo) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    nav {
+        margin-top: 10px;
+    }
+    nav a {
+        margin: 0 5px;
+    }
+    /* Adaptação da barra de busca para dispositivos móveis */
+    .search-bar {
+        flex-direction: column;
+    }
+    .search-bar button {
+        width: 100%;
+    }
 }
