@@ -19,14 +19,14 @@ body {
     background-color: white;
 }
 
-/* Header e Navegação (Pacote Advanced - Design Responsivo) */
+/* Header e Navegação (Pacote Advanced - Design Responsivo + Logotipo no canto) */
 header {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem 5%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Espaça logo, nav e ícone */
+    align-items: center; 
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -36,13 +36,30 @@ header {
 header .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: left;
+}
+
+/* NOVO: Estilos para o Logotipo/Ícone no canto superior direito */
+header .right-icon {
+    width: 40px; 
+    height: 40px;
+    background-color: white; 
+    border-radius: 50%; 
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    /* Se usar uma imagem, substitua o <div> por: <img src="caminho/do/seu/logo_icon.png" alt="Logotipo NI" class="right-icon"> */
 }
 
 nav a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
-    transition: color 0.3s; /* Simula Animações Suaves */
+    transition: color 0.3s; 
 }
 
 nav a:hover {
@@ -80,7 +97,7 @@ h1, h2 {
     cursor: pointer;
     border-radius: 5px;
     margin-top: 15px;
-    transition: background-color 0.3s; /* Simula Animações Suaves */
+    transition: background-color 0.3s; 
 }
 
 .cta-button:hover {
@@ -115,7 +132,7 @@ h1, h2 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s; /* Simula Animações Suaves */
+    transition: transform 0.3s; 
 }
 
 .pacote-card:hover {
@@ -194,14 +211,22 @@ h1, h2 {
 @media (max-width: 768px) {
     header {
         flex-direction: column;
+        align-items: flex-start;
     }
     nav {
         margin-top: 10px;
+        order: 1; 
+        width: 100%;
+        text-align: center;
     }
     nav a {
-        margin: 0 5px;
+        margin: 0 10px;
     }
-    /* Adaptação da barra de busca para dispositivos móveis */
+    .right-icon {
+        position: absolute; 
+        top: 10px;
+        right: 10px;
+    }
     .search-bar {
         flex-direction: column;
     }
