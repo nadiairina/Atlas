@@ -8,13 +8,17 @@ const pacotesData = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Carregar todos os pacotes ao iniciar
-    renderizarPacotes(pacotesData);
+    // Apenas tenta renderizar se o elemento existir (para evitar erros noutras páginas)
+    if (document.getElementById('pacote-list')) {
+        renderizarPacotes(pacotesData);
+    }
 });
 
 // Função para renderizar os cartões de pacote (Extra: UI/UX Cartões)
 function renderizarPacotes(pacotes) {
     const container = document.getElementById('pacote-list');
+    if (!container) return; 
+
     container.innerHTML = ''; // Limpa os resultados anteriores
 
     if (pacotes.length === 0) {
