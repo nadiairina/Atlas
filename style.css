@@ -4,6 +4,8 @@
     --secondary-color: #FFC300; /* Destaque */
     --text-color: #333;
     --light-bg: #f8f8f8;
+    --grey-text: #6b7280; /* Cor para texto do footer */
+    --light-border: #f3f4f6; /* Cor para borda do footer */
 }
 
 * {
@@ -25,7 +27,7 @@ header {
     color: white;
     padding: 1rem 5%;
     display: flex;
-    justify-content: space-between; /* Espaça logo, nav e ícone */
+    justify-content: space-between; 
     align-items: center; 
     position: sticky;
     top: 0;
@@ -39,7 +41,6 @@ header .logo {
     text-align: left;
 }
 
-/* NOVO: Estilos para o Logotipo/Ícone no canto superior direito */
 header .right-icon {
     width: 40px; 
     height: 40px;
@@ -52,7 +53,6 @@ header .right-icon {
     font-size: 0.7rem;
     font-weight: bold;
     color: var(--primary-color);
-    /* Se usar uma imagem, substitua o <div> por: <img src="caminho/do/seu/logo_icon.png" alt="Logotipo NI" class="right-icon"> */
 }
 
 nav a {
@@ -70,6 +70,12 @@ nav a:hover {
 section {
     padding: 60px 5%;
     text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 h1, h2 {
@@ -205,6 +211,41 @@ h1, h2 {
     margin: 0;
     font-weight: bold;
     color: var(--primary-color);
+}
+
+/* NOVO: Estilos do Footer Rico */
+.rich-footer {
+    background-color: white;
+    color: var(--grey-text);
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--light-border);
+    font-size: 0.8rem;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    color: var(--grey-text);
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}
+
+.developer-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.developer-link:hover {
+    color: var(--text-color);
 }
 
 /* Responsividade (Pacote Advanced - Design Responsivo) */
