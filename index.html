@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomad Travel - A Sua Agência de Viagens (Pacote Advanced)</title>
+    <meta name="description" content="Descubra pacotes de viagem inesquecíveis com a Nomad Travel. Design profissional e responsivo. [cite: 152]">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Nomad Travel</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#servicos">Pacotes/Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contacto" class="btn-contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>A Sua Próxima Aventura Começa Aqui.</h1>
+        <p>Desenvolvemos o seu site institucional com a estrutura clara e profissional do Pacote Advanced.</p>
+        <button class="cta-button">Ver Pacotes</button>
+    </section>
+
+    <section id="servicos" class="pacotes">
+        <h2>Pacotes de Viagem em Destaque</h2>
+
+        <div class="search-bar">
+            <input type="text" id="destino-search" placeholder="Buscar por Destino...">
+            <select id="filtro-preco">
+                <option value="todos">Qualquer Preço</option>
+                <option value="baixo">Abaixo de €1000</option>
+                <option value="alto">Acima de €1000</option>
+            </select>
+            <button onclick="filtrarPacotes()">Buscar</button>
+        </div>
+
+        <div class="pacote-list" id="pacote-list">
+            </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2>Fale Connosco</h2>
+        <form action="#" method="POST">
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Mensagem / Pergunta sobre o Pacote" required></textarea>
+            <button type="submit" class="cta-button">Enviar Pedido</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Nomad Travel. Desenvolvido por [Seu Nome] - Pacote Advanced.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
