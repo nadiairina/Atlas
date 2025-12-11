@@ -8,6 +8,7 @@
     --light-bg: #f8f8f8;
     --grey-text: #6b7280; /* Cor para texto do footer */
     --light-border: #f3f4f6; /* Cor para borda do footer */
+    --transition-speed: 0.3s; /* NOVO: Variável para transições */
 }
 
 * {
@@ -33,6 +34,13 @@ h1 { font-size: 2.8rem; }
 h2 { font-size: 2rem; }
 p { margin-bottom: 15px; } /* ESPAÇO APÓS PARÁGRAFOS */
 
+/* NOVO: Foco de acessibilidade */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+
 /* Header e Navegação */
 header {
     background-color: var(--primary-color);
@@ -47,12 +55,37 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais visível */
 }
 
-/* ... (O restante do Header/Nav CSS não mudou drasticamente) ... */
+header a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-speed); /* NOVO: Transição */
+}
+
+header a:hover {
+    color: var(--secondary-color);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.right-icon {
+    /* Mantenho o ícone 'NI' como um placeholder visível no desktop */
+    font-weight: 700;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+.right-icon:hover {
+    color: var(--secondary-color);
+}
 
 /* Secções Comuns - MAIS ESPAÇAMENTO */
 section {
     padding: 80px 5%; /* MAIOR ESPAÇAMENTO VERTICAL */
     text-align: center;
+    transition: opacity var(--transition-speed); /* NOVO: Transição geral de secções */
 }
 
 .container {
@@ -79,30 +112,245 @@ section {
     cursor: pointer;
     border-radius: 30px; /* MAIS ARREDONDADO */
     margin-top: 25px; 
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed); /* NOVO: Transição + sombra */
     font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
     background-color: #FFB300; 
     transform: translateY(-2px); /* Efeito subtil */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
+
+.secondary-cta {
+    background-color: var(--primary-color);
+    color: white;
+}
+.secondary-cta:hover {
+    background-color: #4D448C; /* Um roxo ligeiramente mais escuro */
+}
+
+/* Grid de Feature Cards */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: var(--light-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* NOVO: Transição */
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon-lg {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+/* Pacotes (Serviços e Home) */
+.home-teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pacote-card {
+    border: 1px solid var(--light-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+.pacote-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.pacote-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.pacote-info {
+    padding: 20px;
+}
+
+.pacote-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 15px;
+}
+
+.pacote-card .cta-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Testemunhos */
+.testemunho-card {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: var(--light-bg);
+    border-radius: 10px;
+}
+
+blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.author {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
 
 /* Estilos de Contacto */
 .contacto form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
     gap: 20px; /* MAIOR ESPAÇO NO FORMULÁRIO */
+    text-align: left;
 }
 .contacto input, .contacto textarea {
     padding: 15px; /* MAIOR ALTURA NO INPUT */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed); /* NOVO: Transição no input */
+}
+.contacto input:focus, .contacto textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(93, 84, 164, 0.2);
+}
+
+.contacto textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+.contacto .cta-button {
+    width: 100%;
+    margin-top: 10px;
 }
 
 /* Estilos da Galeria - Melhores caixas */
-.galeria-item {
-    transition: transform 0.3s, box-shadow 0.3s;
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
 }
+.galeria-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    text-align: center;
+}
+.galeria-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+.galeria-item p {
+    padding: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
 .galeria-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Processo (Sobre) */
+.processo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+.processo-step {
+    padding: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+}
+.processo-step h3 {
+    font-size: 1.25rem;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* FAQ (Sobre) - NOVO: Estilos para Acordeão */
+.faq-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+.faq-question:hover {
+    background-color: var(--light-bg);
+}
+
+.faq-answer {
+    padding: 0 20px 15px;
+    line-height: 1.6;
+    max-height: 500px; /* Grande o suficiente para a transição */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.4s ease-out; /* Transição suave */
+    opacity: 1;
+}
+
+.faq-answer.hidden {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+    visibility: hidden; /* NOVO: Para acessibilidade/leitores de ecrã */
 }
 
 /* Footer - Espaçamento e Cores de Texto */
@@ -119,14 +367,75 @@ section {
     color: #999; /* Texto mais suave */
 }
 
+.social-links {
+    margin-bottom: 20px;
+}
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--grey-text);
+    margin: 0 10px;
+    transition: color var(--transition-speed);
+}
+
 .social-icon:hover {
     color: var(--secondary-color); /* Hover no amarelo de destaque */
 }
 
+.developer-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.developer-link:hover {
+    text-decoration: underline;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
-    /* ... (O restante da responsividade foi mantido para quebrar a navegação) ... */
+    /* Ajuste o padding para telas pequenas */
     section {
-        padding: 50px 3%; /* Ajuste o padding para telas pequenas */
+        padding: 50px 3%;
+    }
+    
+    /* Configuração de Menu Mobile */
+    header nav {
+        display: none; /* Esconder por padrão no mobile */
+        position: absolute;
+        top: 100%; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    header nav a {
+        padding: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    header nav.active {
+        display: flex; /* Mostrar quando ativo/toggled */
+    }
+    
+    .right-icon {
+        /* Mudar o 'NI' para um ícone de menu, se necessário, ou manter. */
+        /* Aqui, assumo que 'NI' é o botão de toggle. */
+        font-size: 1.2rem;
+    }
+}
+
+/* Garante que o menu está visível no desktop */
+@media (min-width: 769px) {
+    header nav {
+        display: flex !important; 
+        flex-direction: row;
+        position: static;
+        width: auto;
+    }
+    .right-icon {
+        /* Esconder o toggle menu no desktop se preferir um ícone de menu real */
+        /* display: none; */ 
     }
 }
