@@ -1,3 +1,7 @@
+/* ==========================================================================
+   ESTILOS GERAIS E VARIÁVEIS
+   ========================================================================== 
+*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
@@ -10,78 +14,179 @@
     --transition-speed: 0.3s;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.7;
     color: var(--text-color);
+    background-color: white;
 }
 
-h1, h2, h3 { color: var(--primary-color); margin-bottom: 25px; font-weight: 600; }
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
 h1 { font-size: 2.8rem; }
 h2 { font-size: 2rem; }
+p { margin-bottom: 15px; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+/* Acessibilidade */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
 
-/* Header */
+/* ==========================================================================
+   HEADER E NAVEGAÇÃO
+   ========================================================================== 
+*/
 header {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem 5%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; 
+    align-items: center; 
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-header nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; transition: color 0.3s; }
-header nav a:hover { color: var(--secondary-color); }
+.logo-link {
+    display: flex;
+    align-items: center;
+}
 
-.logo-img { height: 80px; width: auto; display: block; }
+.logo-img {
+    height: 80px; /* Ajustado para um tamanho equilibrado */
+    width: auto;
+    display: block; 
+}
 
-.right-icon { font-size: 1.5rem; color: white; cursor: pointer; }
+header nav {
+    display: flex;
+    align-items: center;
+}
 
-/* Secções de Banner */
-.contact-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/contacto-bg.jpg');
-    background-position: center;
-    background-size: cover;
+header nav a {
     color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-speed); 
+}
+
+header nav a:hover {
+    color: var(--secondary-color);
+}
+
+.btn-contacto {
+    background-color: var(--secondary-color);
+    color: var(--primary-color) !important;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.right-icon {
+    font-size: 1.5rem; 
+    color: white;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+/* ==========================================================================
+   SECÇÕES E BANNERS (HERO)
+   ========================================================================== 
+*/
+section {
     padding: 120px 5%;
     text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Regra para banners de topo em páginas internas e home */
+.hero, .institucional, .pacotes, .galeria, .contact-header {
+    background-position: center; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Fundos específicos */
+#home.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('back.png'); 
+    min-height: 70vh;
+}
+
+#sobre.institucional {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('fundo.png'); 
+}
+
+.contact-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/contacto-bg.jpg');
+}
+
+/* Títulos sobre banners escuros */
+#home.hero h1, #home.hero h2, 
+#sobre.institucional h2, 
+.contact-header h2 {
+    color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-.contact-header h2 { color: white; }
+.contact-header p { color: white; }
 
-/* Corpo do Contacto */
-.contact-body { padding: 80px 5%; text-align: center; }
+/* ==========================================================================
+   PÁGINA DE CONTACTO (NOVA ESTRUTURA)
+   ========================================================================== 
+*/
+.contact-body {
+    padding: 80px 5%;
+}
 
-/* Estilo para a linha de ícones (Email | Telefone) */
 .contact-info-wrapper {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-size: 1.1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .contact-item i {
     color: var(--primary-color);
-    margin-right: 8px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .contact-item a {
     color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s;
+    font-weight: 500;
 }
 
 .contact-item a:hover {
@@ -91,13 +196,12 @@ header nav a:hover { color: var(--secondary-color); }
 
 .divider { color: #ddd; font-weight: 300; }
 
-/* Formulário */
 .contact-body form {
     max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .contact-body input, .contact-body textarea {
@@ -105,51 +209,101 @@ header nav a:hover { color: var(--secondary-color); }
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: inherit;
+    font-size: 1rem;
 }
 
-.contact-body input:focus, .contact-body textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(93, 84, 164, 0.2);
-}
-
-.contact-body textarea { min-height: 150px; resize: vertical; }
-
+/* ==========================================================================
+   COMPONENTES (BOTÕES, CARDS, GALERIA)
+   ========================================================================== 
+*/
 .cta-button {
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border: none;
-    padding: 15px 30px;
+    padding: 15px 35px;
     border-radius: 30px;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    filter: brightness(1.1);
 }
 
-/* Footer */
+/* Grid de Pacotes e Galeria */
+.home-teaser-grid, .galeria-grid, .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pacote-card, .galeria-item, .feature-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.pacote-card:hover, .galeria-item:hover {
+    transform: translateY(-5px);
+}
+
+.pacote-card img, .galeria-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* FAQ Acordeão */
+.faq-item { border-bottom: 1px solid #eee; }
+.faq-question {
+    width: 100%; background: none; border: none; padding: 20px;
+    text-align: left; font-weight: 600; color: var(--primary-color); cursor: pointer;
+}
+.faq-answer.hidden { display: none; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== 
+*/
 .rich-footer {
     background-color: var(--light-bg);
-    padding: 40px 0;
+    padding: 60px 0 30px;
     border-top: 1px solid var(--light-border);
     text-align: center;
 }
 
-.social-icon { font-size: 1.5rem; color: var(--grey-text); margin: 0 10px; transition: color 0.3s; }
+.social-links { margin-bottom: 20px; }
+.social-icon { font-size: 1.8rem; color: var(--grey-text); margin: 0 15px; transition: color 0.3s; }
 .social-icon:hover { color: var(--primary-color); }
 
 .developer-link { color: var(--primary-color); text-decoration: none; font-weight: 600; }
 
-/* Mobile */
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== 
+*/
 @media (max-width: 768px) {
-    .divider { display: none; } /* Esconde a barra | no mobile */
-    .contact-info-wrapper { flex-direction: column; gap: 10px; }
-    header nav { display: none; } /* Aqui precisarias do JS para abrir */
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; width: 100%;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    header nav.active { display: flex; }
+
+    .divider { display: none; }
+    .contact-info-wrapper { flex-direction: column; gap: 15px; }
+    
+    section { padding: 60px 5%; }
 }
