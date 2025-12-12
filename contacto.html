@@ -11,39 +11,50 @@
 </head>
 <body>
     <header>
-         <a href="index.html" class="logo-link">
-        <img src="atlas.png" alt="Atlas Viagens Logo" class="logo-img">
-    </a>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="servicos.html">Pacotes</a>
-        <a href="galeria.html">Galeria</a>
-        <a href="contacto.html" class="btn-contacto">Contacto</a>
-    </nav>
-    <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">
-        <i class="fas fa-user-circle"></i>
-        <i class="fas fa-bars"></i>
-    </div>
+        <a href="index.html" class="logo-link">
+            <img src="atlas.png" alt="Atlas Viagens Logo" class="logo-img">
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="servicos.html">Pacotes</a>
+            <a href="galeria.html">Galeria</a>
+            <a href="contacto.html" class="btn-contacto">Contacto</a>
+        </nav>
+        <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">
+            <i class="fas fa-user-circle"></i>
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
 
     <section class="contact-header">
         <div class="container">
             <h2>Fale Connosco</h2>
-            <p>Preencha o formulário para receber uma proposta personalizada ou agendar a sua consultoria de 50 minutos.</p>
+            <p>Preencha o formulário para receber uma proposta personalizada ou agendar a sua consultoria.</p>
         </div>
     </section>
 
     <section id="contacto" class="contact-body">
         <div class="container">
-            <p>Email: info@atlasviagens.pt | Telefone: +351 987 654 321</p>
+            
+            <div class="contact-info-wrapper">
+                <span class="contact-item">
+                    <i class="fas fa-envelope"></i> 
+                    <strong>Email:</strong> <a href="mailto:info@atlasviagens.pt">info@atlasviagens.pt</a>
+                </span>
+                <span class="divider">|</span>
+                <span class="contact-item">
+                    <i class="fas fa-phone"></i> 
+                    <strong>Telefone:</strong> <a href="tel:+351987654321">+351 987 654 321</a>
+                </span>
+            </div>
 
             <form action="#" method="POST">
                 <input type="text" name="nome" placeholder="Nome" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="text" name="assunto" placeholder="Assunto" required>
                 <textarea name="mensagem" placeholder="Mensagem" required></textarea>
-                <button type="submit" class="cta-button">Enviar</button>
+                <button type="submit" class="cta-button">Enviar Mensagem</button>
             </form>
         </div>
     </section>
@@ -57,11 +68,7 @@
             <div class="text-xs">
                 <p>&copy; 2025 Atlas Viagens. Todos os direitos reservados.</p>
                 <p class="mt-1">Website desenvolvido por 
-                    <a href="https://nadiairina.github.io/Nadia-Portfolio/" 
-                        target="_blank" 
-                        class="developer-link">
-                        Nadia Irina.
-                    </a>
+                    <a href="https://nadiairina.github.io/Nadia-Portfolio/" target="_blank" class="developer-link">Nadia Irina.</a>
                 </p>
             </div>
         </div>
