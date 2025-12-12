@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); /* NOVA FONTE */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-/* Estilos Base e Variáveis do Pacote Advanced - EXPANDIDO */
+/* Estilos Base e Variáveis do Pacote Advanced - EXPANDIDO e MELHORADO */
 :root {
-    --primary-color: #5D54A4; /* Tom roxo/lavanda para a marca */
-    --secondary-color: #FFC300; /* Destaque */
+    --primary-color: #5D54A4; 
+    --secondary-color: #FFC300; 
     --text-color: #333;
     --light-bg: #f8f8f8;
-    --grey-text: #6b7280; /* Cor para texto do footer */
-    --light-border: #f3f4f6; /* Cor para borda do footer */
-    --transition-speed: 0.3s; /* NOVO: Variável para transições */
+    --grey-text: #6b7280; 
+    --light-border: #f3f4f6; 
+    --transition-speed: 0.3s; 
+    --white-bg: white; /* NOVO: Cor de fundo primária */
 }
 
 * {
@@ -18,21 +19,21 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* FONTE ATUALIZADA */
-    line-height: 1.7; /* MAIOR RESPIRAÇÃO/LEITURA */
+    font-family: 'Poppins', sans-serif; 
+    line-height: 1.7; 
     color: var(--text-color);
-    background-color: white;
+    background-color: var(--white-bg); /* Aplicar variável */
 }
 
 h1, h2, h3 {
     color: var(--primary-color);
-    margin-bottom: 25px; /* MAIS ESPAÇO */
+    margin-bottom: 30px; /* MELHORIA: Aumentado para 30px */
     font-weight: 600;
 }
 
 h1 { font-size: 2.8rem; }
 h2 { font-size: 2rem; }
-p { margin-bottom: 15px; } /* ESPAÇO APÓS PARÁGRAFOS */
+p { margin-bottom: 20px; } /* MELHORIA: Aumentado para 20px */
 
 /* NOVO: Foco de acessibilidade */
 a:focus, button:focus, input:focus, select:focus {
@@ -52,14 +53,14 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais visível */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
 }
 
 header a {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    transition: color var(--transition-speed); /* NOVO: Transição */
+    transition: color var(--transition-speed); 
 }
 
 header a:hover {
@@ -71,11 +72,16 @@ header a:hover {
     font-weight: 700;
 }
 
+/* MELHORIA: Estilo para o ícone do menu mobile (agora um 'button') */
 .right-icon {
-    /* Mantenho o ícone 'NI' como um placeholder visível no desktop */
     font-weight: 700;
     cursor: pointer;
     transition: color var(--transition-speed);
+    background: none; /* NOVO */
+    border: none; /* NOVO */
+    color: white; /* NOVO: Cor do ícone */
+    font-size: 1.5rem; /* NOVO: Tamanho do ícone */
+    padding: 0.5rem; /* NOVO: Padding para área de toque */
 }
 .right-icon:hover {
     color: var(--secondary-color);
@@ -83,16 +89,15 @@ header a:hover {
 
 /* Secções Comuns - MELHORIA DE ESPAÇAMENTO */
 section {
-    padding: 80px 5%; /* ESPAÇAMENTO VERTICAL PADRÃO */
+    padding: 100px 5%; /* MELHORIA: Aumentado de 80px para 100px */
     text-align: center;
     transition: opacity var(--transition-speed);
 }
 
-/* Aumentar o espaçamento da secção de serviços (ou qualquer outra secção com a classe container) */
-/* Aplicado a todas as secções em geral, mas garante que não estão apertadas */
+/* Aumentar o espaçamento de secções internas */
 .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq {
-    padding-top: 100px; /* Aumentado o padding superior e inferior */
-    padding-bottom: 100px;
+    padding-top: 120px; /* MELHORIA: Aumentado de 100px para 120px */
+    padding-bottom: 120px; /* MELHORIA: Aumentado de 100px para 120px */
 }
 
 
@@ -105,8 +110,8 @@ section {
 /* Hero Section (Home) - MAIS ESPAÇAMENTO */
 .hero {
     background: var(--light-bg);
-    padding: 120px 5%; /* AINDA MAIS ESPAÇO */
-    min-height: 70vh;
+    padding: 150px 5%; /* MELHORIA: Aumentado de 120px para 150px */
+    min-height: 80vh; /* MELHORIA: Aumentado para 80vh */
 }
 
 /* Botão CTA - MAIS LARGO E VISÍVEL */
@@ -115,20 +120,20 @@ section {
     color: var(--text-color);
     border: none;
     text-decoration: none;
-    padding: 14px 30px; /* MAIOR */
+    padding: 16px 32px; /* MELHORIA: Ligeiramente maior */
     font-size: 1.05rem;
     cursor: pointer;
-    border-radius: 30px; /* MAIS ARREDONDADO */
+    border-radius: 40px; /* MELHORIA: Mais arredondado (estilo 'pill') */
     margin-top: 25px; 
-    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed); /* NOVO: Transição + sombra */
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed); 
     font-weight: 600;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* MELHORIA: Sombra mais suave */
 }
 
 .cta-button:hover {
     background-color: #FFB300; 
-    transform: translateY(-2px); /* Efeito subtil */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* MELHORIA: Efeito subtil, ligeiramente mais pronunciado */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* MELHORIA: Sombra mais forte no hover */
 }
 
 .secondary-cta {
@@ -136,53 +141,53 @@ section {
     color: white;
 }
 .secondary-cta:hover {
-    background-color: #4D448C; /* Um roxo ligeiramente mais escuro */
+    background-color: #4D448C; 
 }
 
 /* Grid de Feature Cards */
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    gap: 40px; /* MELHORIA: Aumentado para 40px */
+    margin-top: 50px; /* MELHORIA: Aumentado para 50px */
 }
 
 .feature-card {
     background: var(--light-bg);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* NOVO: Transição */
+    padding: 40px; /* MELHORIA: Aumentado o padding interno */
+    border-radius: 12px; /* MELHORIA: Mais arredondamento */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* MELHORIA: Sombra mais visível, mas suave */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed); 
 }
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Ajuste de intensidade */
 }
 
 .icon-lg {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Ligeiramente maior */
     color: var(--secondary-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Mais espaço após o ícone */
 }
 
 /* Pacotes (Serviços e Home) */
 .home-teaser-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    gap: 40px; /* MELHORIA: Aumentado para 40px */
+    margin-top: 50px; /* MELHORIA: Aumentado para 50px */
 }
 
 .pacote-card {
-    border: 1px solid var(--light-bg);
-    border-radius: 8px;
+    border: 1px solid var(--light-border); /* Usar a variável de cor da borda clara */
+    border-radius: 10px; /* Mais arredondado */
     overflow: hidden;
     text-align: left;
     transition: box-shadow var(--transition-speed), transform var(--transition-speed);
 }
 .pacote-card:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Sombra mais forte */
+    transform: translateY(-4px); /* Efeito ligeiro */
 }
 
 .pacote-card img {
@@ -192,7 +197,7 @@ section {
 }
 
 .pacote-info {
-    padding: 20px;
+    padding: 25px; /* MELHORIA: Aumentado o padding interno */
 }
 
 .pacote-info h3 {
@@ -203,7 +208,7 @@ section {
 }
 
 .price {
-    font-size: 1.4rem;
+    font-size: 1.5rem; /* Ligeiramente maior */
     font-weight: 700;
     color: var(--secondary-color);
     margin-top: 15px;
@@ -213,22 +218,44 @@ section {
     display: block;
     width: 100%;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px; /* Mais espaço antes do botão */
+    padding: 12px 20px; /* Botão ligeiramente mais compacto dentro do card */
+}
+
+/* Search Bar (servicos.html) - Para dar espaço à busca */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px; /* Mais espaço após a descrição */
+}
+.search-bar input, .search-bar select {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    flex-grow: 1;
+    max-width: 300px;
+}
+.search-bar button {
+    margin-top: 0; /* Remover margin-top para alinhar */
 }
 
 /* Testemunhos */
 .testemunho-card {
     max-width: 700px;
-    margin: 30px auto;
-    padding: 30px;
+    margin: 40px auto; /* Mais margin vertical */
+    padding: 40px; /* Mais padding interno */
     background-color: var(--light-bg);
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra suave */
 }
 
 blockquote {
     font-style: italic;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
+    font-size: 1.2rem; /* Ligeiramente maior */
+    line-height: 1.8; /* Melhor leitura */
+    margin-bottom: 20px; /* Mais espaço após a citação */
     color: var(--text-color);
 }
 
@@ -240,90 +267,94 @@ blockquote {
 
 /* Estilos de Contacto */
 .contacto form {
-    max-width: 600px;
-    margin: 30px auto 0;
+    max-width: 700px; /* MELHORIA: Ligeiramente mais largo */
+    margin: 40px auto 0; /* MELHORIA: Mais margem superior */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* MAIOR ESPAÇO NO FORMULÁRIO */
+    gap: 25px; /* MELHORIA: Aumentado o gap */
     text-align: left;
 }
 .contacto input, .contacto textarea {
-    padding: 15px; /* MAIOR ALTURA NO INPUT */
+    padding: 18px; /* MELHORIA: Maior altura/padding */
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed); /* NOVO: Transição no input */
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed); 
 }
 .contacto input:focus, .contacto textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(93, 84, 164, 0.2);
+    box-shadow: 0 0 0 4px rgba(93, 84, 164, 0.15); /* Sombra mais suave */
 }
 
 .contacto textarea {
     resize: vertical;
-    min-height: 150px;
+    min-height: 180px; /* Ligeiramente mais alto */
 }
 .contacto .cta-button {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* Estilos da Galeria - Melhores caixas */
 .galeria-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
+    gap: 30px; /* MELHORIA: Aumentado para 30px */
+    margin-top: 50px; /* MELHORIA: Aumentado para 50px */
 }
 .galeria-item {
-    background-color: white;
-    border-radius: 8px;
+    background-color: var(--white-bg);
+    border-radius: 12px; /* Mais arredondado */
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave */
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     text-align: center;
 }
 .galeria-item img {
     width: 100%;
-    height: 250px;
+    height: 280px; /* Ligeiramente mais alto */
     object-fit: cover;
     display: block;
 }
 .galeria-item p {
-    padding: 15px;
+    padding: 20px; /* Mais padding */
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 0;
 }
 
 .galeria-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px); /* Efeito mais visível */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Processo (Sobre) */
 .processo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    gap: 40px; /* MELHORIA: Aumentado para 40px */
+    margin-top: 50px; /* MELHORIA: Aumentado para 50px */
     text-align: center;
 }
 .processo-step {
-    padding: 20px;
+    padding: 30px; /* Mais padding */
     border: 2px solid var(--primary-color);
-    border-radius: 8px;
+    border-radius: 10px;
+    transition: background-color 0.2s; /* Adicionar transição */
+}
+.processo-step:hover {
+    background-color: rgba(93, 84, 164, 0.05); /* Fundo muito subtil no hover */
 }
 .processo-step h3 {
-    font-size: 1.25rem;
+    font-size: 1.35rem; /* Ligeiramente maior */
     margin-top: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 /* FAQ (Sobre) - Estilos para Acordeão */
 .faq-item {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--light-border); /* Usar variável */
     margin-bottom: 10px;
     text-align: left;
 }
@@ -333,24 +364,31 @@ blockquote {
     background: none;
     border: none;
     text-align: left;
-    padding: 15px 20px;
-    font-size: 1.1rem;
+    padding: 18px 25px; /* MELHORIA: Mais padding */
+    font-size: 1.15rem; /* Ligeiramente maior */
     font-weight: 600;
     color: var(--primary-color);
     cursor: pointer;
     transition: background-color var(--transition-speed);
+    display: flex; /* Para permitir ícone futuro */
+    justify-content: space-between;
+    align-items: center;
 }
 .faq-question:hover {
     background-color: var(--light-bg);
 }
 
 .faq-answer {
-    padding: 0 20px 15px;
-    line-height: 1.6;
+    padding: 0 25px 25px; /* MELHORIA: Mais padding */
+    line-height: 1.7;
     max-height: 500px;
     overflow: hidden;
     transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.4s ease-out;
     opacity: 1;
+}
+
+.faq-answer p {
+    margin-bottom: 0; /* Remover margin extra do parágrafo */
 }
 
 .faq-answer.hidden {
@@ -365,37 +403,37 @@ blockquote {
 .rich-footer {
     background-color: var(--light-bg);
     color: var(--grey-text);
-    padding: 50px 0;
-    margin-top: 50px; 
+    padding: 60px 0; /* MELHORIA: Mais padding vertical */
+    margin-top: 80px; /* MELHORIA: Mais espaço da secção anterior */
     border-top: 1px solid var(--light-border);
     font-size: 0.9rem;
-    text-align: center; /* Garante que o container principal esteja centrado */
+    text-align: center; 
 }
 
 /* Garante que o conteúdo dentro do container do footer está centrado */
 .rich-footer .container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    align-items: center; 
     text-align: center; 
 }
 
 .rich-footer .text-xs {
-    color: #999;
+    color: var(--grey-text);
 }
 
 .social-links {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Mais espaço */
 }
 .social-icon {
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Ligeiramente maior */
     color: var(--grey-text);
-    margin: 0 10px;
+    margin: 0 12px;
     transition: color var(--transition-speed);
 }
 
 .social-icon:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color); /* Mudar para Primary Color para um visual mais clean */
 }
 
 .developer-link {
@@ -409,15 +447,28 @@ blockquote {
 
 /* Responsividade */
 @media (max-width: 768px) {
+    
+    h1 { font-size: 2.2rem; margin-bottom: 25px; }
+    h2 { font-size: 1.8rem; margin-bottom: 25px; }
+
     /* Ajuste o padding para telas pequenas */
     section {
-        padding: 50px 3%;
+        padding: 60px 3%; /* Mais padding que o original (50px) */
     }
     
     /* Aumentar o espaçamento da secção de serviços (ou qualquer outra secção com a classe container) */
     .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq {
-        padding-top: 70px; 
-        padding-bottom: 70px;
+        padding-top: 80px; /* Mais padding que o original (70px) */
+        padding-bottom: 80px;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .search-bar input, .search-bar select {
+        max-width: 100%;
     }
     
     /* Configuração de Menu Mobile */
@@ -443,7 +494,7 @@ blockquote {
     }
     
     .right-icon {
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* Mantém o ícone grande */
     }
 }
 
@@ -454,5 +505,8 @@ blockquote {
         flex-direction: row;
         position: static;
         width: auto;
+    }
+    .right-icon {
+        display: none; /* Esconder o ícone 'hambúrguer' no desktop */
     }
 }
