@@ -80,7 +80,7 @@ header a:hover {
 }
 
 .logo-img {
-    height: 100px; /* ALTURA DA IMAGEM DO LOGOTIPO */
+    height: 60px; /* ALTURA DA IMAGEM DO LOGOTIPO */
     width: auto;
     display: block; 
 }
@@ -137,24 +137,27 @@ section {
     background-position: center; 
     background-size: cover; 
     background-repeat: no-repeat;
-    color: white; 
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adicionar sombra ao texto para legibilidade */
+    /* Remove a cor branca e a sombra de texto das regras gerais */
+    color: inherit; 
+    text-shadow: none;
     min-height: 40vh; /* Altura mínima para banners internos */
 }
 
 /* --- FUNDOS INDIVIDUAIS POR PÁGINA (ID) --- */
-/* ATENÇÃO: ALTERE OS CAMINHOS DAS IMAGENS ('imagens/...') */
-/* PÁGINAS SEM FUNDO: Pacotes (#servicos) e Galeria (#galeria) foram removidas. */
 
 /* 1. Página Inicial (ID #home) - Altura maior */
 #home.hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/home-bg.jpg'); 
     min-height: 70vh;
+    color: white; /* Adiciona cor branca e sombra de texto APENAS nos banners com fundo */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* 2. Página Sobre (ID #sobre) */
 #sobre.institucional {
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/sobre-bg.jpg'); 
+    color: white; /* Adiciona cor branca e sombra de texto APENAS nos banners com fundo */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* 3. Página Contacto (ID #contacto) - AGORA APENAS PARA O CABEÇALHO */
@@ -170,7 +173,7 @@ section {
     background-position: center; 
     background-size: cover; 
     background-repeat: no-repeat;
-    color: white; 
+    color: white; /* Adiciona cor branca e sombra de texto APENAS nos banners com fundo */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
     min-height: 40vh; 
     /* Garante o espaçamento vertical dos banners */
@@ -190,28 +193,24 @@ section {
 
 /* --- FIM DOS FUNDOS INDIVIDUAIS --- */
 
-/* Ajustar cores de títulos em todas as secções de Banner (se houver fundo, ficam brancos, senão herdam a cor base) */
-.hero h1, .hero h2, .hero h3,
-.institucional h1, .institucional h2, .institucional h3,
-.pacotes h1, .pacotes h2, .pacotes h3,
-.galeria h1, .galeria h2, .galeria h3 {
-    /* Volta para a cor normal (primary-color) para páginas sem background-image */
-    color: inherit; 
-}
+/* Ajustar cores de títulos em todas as secções de Banner */
 
-/* Regras específicas para títulos em banners com fundo */
+/* Títulos em banners com fundo devem ser brancos */
 #home.hero h1, #home.hero h2, #home.hero h3,
 #sobre.institucional h1, #sobre.institucional h2, #sobre.institucional h3,
-.contact-header h2, .contact-header h3 { /* NOVO: Para o cabeçalho de contacto */
+.contact-header h2, .contact-header h3 { 
     color: white; 
 }
+
+/* Títulos em banners sem fundo (Pacotes, Galeria) herdam a cor base (var(--primary-color)) */
+/* Não precisa de regras específicas se a cor base já estiver definida para h1, h2, h3 */
 
 
 /* Ajustar a cor do botão CTA para o fundo escuro */
 /* Apenas nos banners com fundo */
 #home.hero .cta-button, 
 #sobre.institucional .cta-button,
-.contact-header .cta-button { /* NOVO: Para o cabeçalho de contacto, se existir */
+.contact-header .cta-button { 
     background-color: var(--secondary-color); /* Amarelo */
     color: var(--primary-color); /* Roxo */
 }
