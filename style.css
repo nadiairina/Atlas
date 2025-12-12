@@ -93,7 +93,8 @@ section {
 }
 
 /* Aumentar o espaçamento de secções internas (mais impactante) */
-.servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq {
+/* CLASSE .pacotes-home ADICIONADA AQUI */
+.servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
     padding-top: 120px; /* AUMENTADO PARA 120px */
     padding-bottom: 120px; /* AUMENTADO PARA 120px */
 }
@@ -140,6 +141,11 @@ section {
 }
 .secondary-cta:hover {
     background-color: #4D448C; 
+}
+
+/* NOVO: Aumenta o espaçamento do botão CTA na secção "features" */
+.features .secondary-cta {
+    margin-top: 45px; /* Aumentado de 25px para 45px para mais distância do grid de features */
 }
 
 /* Grid de Feature Cards */
@@ -436,7 +442,7 @@ blockquote {
     }
     
     /* Aumentar o espaçamento da secção de serviços (ou qualquer outra secção com a classe container) */
-    .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq {
+    .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
         padding-top: 70px; 
         padding-bottom: 70px;
     }
