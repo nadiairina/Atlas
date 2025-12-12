@@ -147,7 +147,7 @@ section {
 
 /* 1. Página Inicial (ID #home) - Altura maior */
 #home.hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/home-bg.jpg'); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('back.png'); 
     min-height: 70vh;
     color: white; /* Adiciona cor branca e sombra de texto APENAS nos banners com fundo */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -155,7 +155,7 @@ section {
 
 /* 2. Página Sobre (ID #sobre) */
 #sobre.institucional {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/sobre-bg.jpg'); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('fundo.png'); 
     color: white; /* Adiciona cor branca e sombra de texto APENAS nos banners com fundo */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
