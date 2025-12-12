@@ -80,7 +80,7 @@ header a:hover {
 }
 
 .logo-img {
-    height: 60px; /* ALTURA DA IMAGEM DO LOGOTIPO */
+    height: 100px; /* ALTURA DA IMAGEM DO LOGOTIPO */
     width: auto;
     display: block; 
 }
