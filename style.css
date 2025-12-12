@@ -58,20 +58,34 @@ header {
 header a {
     color: white;
     text-decoration: none;
+    /* Ajuste: Remover padding universal para links do header para não afetar a imagem logo */
+    padding: 0; 
+    transition: color var(--transition-speed); 
+}
+
+/* Aplicar padding apenas aos links de navegação */
+header nav a {
     padding: 0.5rem 1rem;
-    transition: color var(--transition-speed); /* NOVO: Transição */
 }
 
 header a:hover {
     color: var(--secondary-color);
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    /* Adicionar um pouco de espaço à direita, se necessário */
-    margin-right: 1.5rem; 
+/* ESTILOS PARA LOGOTIPO DE IMAGEM (NOVOS) */
+.logo-link {
+    /* Define o link como flex container para alinhar verticalmente a imagem */
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem; /* Adicionar espaço à direita do logótipo */
 }
+
+.logo-img {
+    height: 40px; /* ALTURA DA IMAGEM DO LOGOTIPO */
+    width: auto;
+    display: block; 
+}
+
 
 .right-icon {
     /* Ajuste: Ícone Hamburger para mobile */
