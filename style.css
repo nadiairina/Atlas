@@ -111,10 +111,12 @@ section {
 }
 
 /* Secções Principais - AINDA MAIS ESPAÇO */
-.servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
+.servicos, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
     padding-top: 200px; 
     padding-bottom: 150px; 
 }
+
+/* NOVO: Remove a classe .contacto desta lista para gerir o padding via .contact-body */
 
 
 .container {
@@ -162,8 +164,8 @@ section {
 
 /* 3. Página Contacto (ID #contacto) - AGORA APENAS PARA O CABEÇALHO */
 
-/* Remove o padding da secção principal e deixa o espaçamento ser controlado pelas novas DIVs */
-#contacto.contacto {
+/* Remove o padding da secção principal (contacto) e deixa o espaçamento ser controlado pelas novas DIVs */
+#contacto {
     padding: 0; 
 }
 
@@ -183,7 +185,11 @@ section {
 
 /* O corpo de contacto onde está o formulário (em branco) */
 .contact-body {
-    padding: 120px 5%; /* Adiciona o padding normal de secção ao corpo */
+    /* Ajustado para usar o padding que seria da secção, mas aplicado à nova classe */
+    padding-top: 120px; 
+    padding-bottom: 120px;
+    padding-left: 5%;
+    padding-right: 5%;
     text-align: center;
 }
 .contact-body form {
@@ -370,7 +376,7 @@ blockquote {
 
 
 /* Estilos de Contacto (Geral) */
-.contacto form {
+.contact-body form { /* Alterado de .contacto form para .contact-body form */
     max-width: 600px;
     margin: 30px auto 0;
     display: flex;
@@ -378,7 +384,7 @@ blockquote {
     gap: 20px; 
     text-align: left;
 }
-.contacto input, .contacto textarea {
+.contact-body input, .contact-body textarea { /* Alterado de .contacto input/textarea para .contact-body input/textarea */
     padding: 15px; 
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -386,16 +392,16 @@ blockquote {
     font-size: 1rem;
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed); 
 }
-.contacto input:focus, .contacto textarea:focus {
+.contact-body input:focus, .contact-body textarea:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(93, 84, 164, 0.2);
 }
 
-.contacto textarea {
+.contact-body textarea {
     resize: vertical;
     min-height: 150px;
 }
-.contacto .cta-button {
+.contact-body .cta-button {
     width: 100%;
     margin-top: 10px;
 }
@@ -545,9 +551,17 @@ blockquote {
     }
     
     /* Aumentar o espaçamento da secção de serviços (ou qualquer outra secção com a classe container) */
-    .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
+    .servicos, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
         padding-top: 90px; /* Aumentado para 90px no mobile */
         padding-bottom: 90px; /* Aumentado para 90px no mobile */
+    }
+    
+    /* NOVO: Ajusta o espaçamento do corpo de contacto para mobile */
+    .contact-body {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        padding-left: 3%;
+        padding-right: 3%;
     }
     
     /* Configuração de Menu Mobile */
