@@ -85,18 +85,17 @@ header a:hover {
     pointer-events: none; /* Garante que o click é no div pai */
 }
 
-/* Secções Comuns - MELHORIA DE ESPAÇAMENTO */
+/* Secções Comuns - MÁXIMA RESPIRAÇÃO */
 section {
-    padding: 100px 5%; /* AUMENTADO PARA 100px em todas as secções */
+    padding: 120px 5%; /* AUMENTADO SIGNIFICATIVAMENTE: 120px de espaço vertical */
     text-align: center;
     transition: opacity var(--transition-speed);
 }
 
-/* Aumentar o espaçamento de secções internas (mais impactante) */
-/* CLASSE .pacotes-home ADICIONADA AQUI */
+/* Secções Principais - AINDA MAIS ESPAÇO */
 .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
-    padding-top: 120px; /* AUMENTADO PARA 120px */
-    padding-bottom: 120px; /* AUMENTADO PARA 120px */
+    padding-top: 150px; /* NOVO: 150px para máximo impacto */
+    padding-bottom: 150px; /* NOVO: 150px para máximo impacto */
 }
 
 
@@ -106,10 +105,10 @@ section {
     padding: 0 1rem;
 }
 
-/* Hero Section (Home) - MAIS ESPAÇAMENTO */
+/* Hero Section (Home) - MÁXIMO ESPAÇAMENTO NO TOPO */
 .hero {
     background: var(--light-bg);
-    padding: 140px 5%; /* AINDA MAIS ESPAÇO, 140px */
+    padding: 180px 5%; /* AUMENTADO: 180px de espaço no topo */
     min-height: 70vh;
 }
 
@@ -143,9 +142,9 @@ section {
     background-color: #4D448C; 
 }
 
-/* NOVO: Aumenta o espaçamento do botão CTA na secção "features" */
+/* Aumenta o espaçamento do botão CTA na secção "features" */
 .features .secondary-cta {
-    margin-top: 45px; /* Aumentado de 25px para 45px para mais distância do grid de features */
+    margin-top: 45px; /* Mantido em 45px para mais distância do grid de features */
 }
 
 /* Grid de Feature Cards */
@@ -438,13 +437,13 @@ blockquote {
 @media (max-width: 768px) {
     /* Ajuste o padding para telas pequenas */
     section {
-        padding: 50px 3%;
+        padding: 70px 3%; /* Aumentado para 70px no mobile */
     }
     
     /* Aumentar o espaçamento da secção de serviços (ou qualquer outra secção com a classe container) */
     .servicos, .contacto, .galeria, .institucional, .processo-viagem, .faq, .pacotes-home {
-        padding-top: 70px; 
-        padding-bottom: 70px;
+        padding-top: 90px; /* Aumentado para 90px no mobile */
+        padding-bottom: 90px; /* Aumentado para 90px no mobile */
     }
     
     /* Configuração de Menu Mobile */
@@ -470,7 +469,7 @@ blockquote {
     }
     
     .right-icon {
-        font-size: 1.5rem; /* Aumenta um pouco para ser mais fácil de clicar */
+        font-size: 1.5rem; 
     }
 
     /* Usar o ícone de menu no mobile */
