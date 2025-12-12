@@ -69,10 +69,12 @@ header a:hover {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
+    /* Adicionar um pouco de espaço à direita, se necessário */
+    margin-right: 1.5rem; 
 }
 
 .right-icon {
-    /* AJUSTE: Ícone de Utilizador para desktop, Ícone Hamburger para mobile */
+    /* Ajuste: Ícone Hamburger para mobile */
     font-size: 1.5rem; 
     color: white;
     cursor: pointer;
@@ -473,9 +475,6 @@ blockquote {
     }
 
     /* Usar o ícone de menu no mobile */
-    .right-icon i.fa-user-circle {
-        display: none;
-    }
     .right-icon i.fa-bars {
         display: inline-block;
     }
@@ -490,11 +489,8 @@ blockquote {
         width: auto;
     }
     
-    /* Usar o ícone de utilizador no desktop */
-    .right-icon i.fa-bars {
+    /* Ocultar o right-icon no desktop, agora que só contém o menu hamburger */
+    .right-icon {
         display: none;
-    }
-    .right-icon i.fa-user-circle {
-        display: inline-block;
     }
 }
