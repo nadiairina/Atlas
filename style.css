@@ -71,7 +71,7 @@ header a:hover {
     color: var(--secondary-color);
 }
 
-/* ESTILOS PARA LOGOTIPO DE IMAGEM (ATUALIZADO) */
+/* ESTILOS PARA LOGOTIPO DE IMAGEM */
 .logo-link {
     /* Define o link como flex container para alinhar verticalmente a imagem */
     display: flex;
@@ -80,11 +80,14 @@ header a:hover {
 }
 
 .logo-img {
-    height: 100px; /* ALTURA DA IMAGEM DO LOGOTIPO (AGORA 60px) */
+    height: 100px; /* ALTURA DA IMAGEM DO LOGOTIPO */
     width: auto;
     display: block; 
 }
 
+.logo {
+    display: none; /* Oculta a classe de logotipo de texto se estiver a usar imagem */
+}
 
 .right-icon {
     /* AJUSTE: Ícone Hamburger para mobile */
@@ -129,17 +132,19 @@ section {
 /* --- ESTILOS DE BANNER (TOPO DE PÁGINAS) --- */
 
 /* Regras Comuns para todas as Secções de Banner */
-.hero, .institucional, .pacotes, .galeria, .contacto {
+.hero, .institucional, .pacotes, .galeria {
+    /* Estas propriedades são herdadas por todos os banners, mesmo os sem imagem */
     background-position: center; 
     background-size: cover; 
     background-repeat: no-repeat;
-    color: white; /* Garante que o texto de parágrafos/links fica branco por defeito */
+    color: white; 
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Adicionar sombra ao texto para legibilidade */
     min-height: 40vh; /* Altura mínima para banners internos */
 }
 
 /* --- FUNDOS INDIVIDUAIS POR PÁGINA (ID) --- */
 /* ATENÇÃO: ALTERE OS CAMINHOS DAS IMAGENS ('imagens/...') */
+/* PÁGINAS SEM FUNDO: Pacotes (#servicos) e Galeria (#galeria) foram removidas. */
 
 /* 1. Página Inicial (ID #home) - Altura maior */
 #home.hero {
@@ -152,34 +157,61 @@ section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/sobre-bg.jpg'); 
 }
 
-/* 3. Página Pacotes/Serviços (ID #servicos) */
-#servicos.pacotes {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/servicos-bg.jpg'); 
-}
+/* 3. Página Contacto (ID #contacto) - AGORA APENAS PARA O CABEÇALHO */
 
-/* 4. Página Galeria (ID #galeria) */
-#galeria.galeria {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/galeria-bg.jpg'); 
-}
-
-/* 5. Página Contacto (ID #contacto) */
+/* Remove o padding da secção principal e deixa o espaçamento ser controlado pelas novas DIVs */
 #contacto.contacto {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/contacto-bg.jpg'); 
+    padding: 0; 
 }
+
+/* Aplica o fundo e estilo de banner apenas ao cabeçalho (topo) */
+.contact-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/contacto-bg.jpg'); 
+    background-position: center; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+    min-height: 40vh; 
+    /* Garante o espaçamento vertical dos banners */
+    padding-top: 150px; 
+    padding-bottom: 150px; 
+}
+
+/* O corpo de contacto onde está o formulário (em branco) */
+.contact-body {
+    padding: 120px 5%; /* Adiciona o padding normal de secção ao corpo */
+    text-align: center;
+}
+.contact-body form {
+    margin: 0 auto; /* Centraliza o formulário no body */
+}
+
 
 /* --- FIM DOS FUNDOS INDIVIDUAIS --- */
 
-/* Ajustar cores de títulos em todas as secções de Banner */
+/* Ajustar cores de títulos em todas as secções de Banner (se houver fundo, ficam brancos, senão herdam a cor base) */
 .hero h1, .hero h2, .hero h3,
 .institucional h1, .institucional h2, .institucional h3,
 .pacotes h1, .pacotes h2, .pacotes h3,
-.galeria h1, .galeria h2, .galeria h3,
-.contacto h1, .contacto h2, .contacto h3 {
+.galeria h1, .galeria h2, .galeria h3 {
+    /* Volta para a cor normal (primary-color) para páginas sem background-image */
+    color: inherit; 
+}
+
+/* Regras específicas para títulos em banners com fundo */
+#home.hero h1, #home.hero h2, #home.hero h3,
+#sobre.institucional h1, #sobre.institucional h2, #sobre.institucional h3,
+.contact-header h2, .contact-header h3 { /* NOVO: Para o cabeçalho de contacto */
     color: white; 
 }
 
+
 /* Ajustar a cor do botão CTA para o fundo escuro */
-.hero .cta-button, .institucional .cta-button, .pacotes .cta-button, .galeria .cta-button, .contacto .cta-button {
+/* Apenas nos banners com fundo */
+#home.hero .cta-button, 
+#sobre.institucional .cta-button,
+.contact-header .cta-button { /* NOVO: Para o cabeçalho de contacto, se existir */
     background-color: var(--secondary-color); /* Amarelo */
     color: var(--primary-color); /* Roxo */
 }
@@ -338,7 +370,7 @@ blockquote {
 }
 
 
-/* Estilos de Contacto */
+/* Estilos de Contacto (Geral) */
 .contacto form {
     max-width: 600px;
     margin: 30px auto 0;
@@ -563,8 +595,11 @@ blockquote {
         width: auto;
     }
     
-    /* Ocultar o right-icon no desktop (só contém o menu hamburger) */
-    .right-icon {
+    /* Usar o ícone de utilizador no desktop */
+    .right-icon i.fa-bars {
         display: none;
+    }
+    .right-icon i.fa-user-circle {
+        display: inline-block;
     }
 }
