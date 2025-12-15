@@ -401,7 +401,8 @@ blockquote {
 
 
 /* Estilos de Contacto (Geral) */
-.contacto form {
+/* CORRIGIDO: Deve usar .contact-body, que é a classe na sua tag <section> */
+.contact-body form { 
     max-width: 600px;
     margin: 30px auto 0;
     display: flex;
@@ -409,10 +410,11 @@ blockquote {
     gap: 20px; 
     text-align: left;
 }
-.contacto input, .contacto textarea {
-    /* CORREÇÃO APLICADA AQUI */
+
+/* CORRIGIDO: Aplicando a seletor com mais especificidade para garantir 100% de largura */
+.contact-body form input, 
+.contact-body form textarea {
     width: 100%; /* Garante que os campos ocupem toda a largura */
-    /* FIM DA CORREÇÃO */
     
     padding: 15px; 
     border: 1px solid #ddd;
@@ -421,16 +423,22 @@ blockquote {
     font-size: 1rem;
     transition: border-color var(--transition-speed), box-shadow var(--transition-speed); 
 }
-.contacto input:focus, .contacto textarea:focus {
+
+/* CORRIGIDO: Seletor de foco */
+.contact-body form input:focus, 
+.contact-body form textarea:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(93, 84, 164, 0.2);
 }
 
-.contacto textarea {
+/* CORRIGIDO: Seletor para textarea */
+.contact-body form textarea {
     resize: vertical;
     min-height: 150px;
 }
-.contacto .cta-button {
+
+/* CORRIGIDO: Seletor para o botão CTA */
+.contact-body form .cta-button {
     width: 100%;
     margin-top: 10px;
 }
