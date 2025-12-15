@@ -410,6 +410,10 @@ blockquote {
     text-align: left;
 }
 .contacto input, .contacto textarea {
+    /* CORREÇÃO APLICADA AQUI */
+    width: 100%; /* Garante que os campos ocupem toda a largura */
+    /* FIM DA CORREÇÃO */
+    
     padding: 15px; 
     border: 1px solid #ddd;
     border-radius: 8px;
