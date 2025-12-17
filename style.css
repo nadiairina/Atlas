@@ -1308,3 +1308,34 @@ header nav a:hover, header nav a.active {
         display: flex;
     }
 }
+/* Ajuste do Banner de Serviços (idêntico ao Sobre) */
+#servicos-banner.institucional {
+    min-height: 80vh; /* Mesma altura que definimos para a página sobre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+/* Overlay escura opcional para ajudar a ler o título sobre a imagem */
+#servicos-banner::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Escurece a imagem em 30% */
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Garante que o H1 do banner seja grande e imponente */
+#servicos-banner h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0;
+}
