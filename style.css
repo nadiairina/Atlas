@@ -1112,7 +1112,7 @@ section {
 
 /* Ajuste do Banner (ID #sobre) */
 #sobre.institucional {
-    min-height: 60vh; /* Reduzi de 100vh para 60vh para não ocupar o ecrã todo, já que o texto está em baixo */
+    min-height: 80vh; /* Reduzi de 100vh para 60vh para não ocupar o ecrã todo, já que o texto está em baixo */
     display: flex;
     align-items: center;
     justify-content: center;
