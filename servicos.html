@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacotes | Atlas Viagens</title>
-    <meta name="description" content="Explore todos os pacotes de viagem disponíveis.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,90 +16,38 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="sobre.html">Sobre</a>
-            <a href="servicos.html">Pacotes</a>
+            <a href="servicos.html" class="active">Pacotes</a>
             <a href="galeria.html">Galeria</a>
             <a href="contacto.html" class="btn-contacto">Contacto</a>
         </nav>
-        <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">
-            <i class="fas fa-user-circle"></i>
-            <i class="fas fa-bars"></i>
-        </div>
     </header>
 
-    <section id="servicos" class="pacotes container">
-        <h2>Pacotes de Viagem em Destaque</h2>
+    <section class="pacotes container">
+        <h2 class="text-center">Os Nossos Pacotes</h2>
         
-        <div class="search-bar">
-            <input type="text" id="destino-search" placeholder="Buscar por Destino..." oninput="filtrarPacotesDebounced()">
-            <select id="filtro-preco" onchange="filtrarPacotesDebounced()">
-                <option value="todos">Qualquer Preço</option>
-                <option value="baixo">Abaixo de €1000</option>
-                <option value="alto">Acima de €1000</option>
-            </select>
-            <button onclick="filtrarPacotes()" class="cta-button">Buscar</button>
-        </div>
+        <div class="pacote-list" id="pacote-list"></div>
 
-        <div class="pacote-list" id="pacote-list">
-            <div class="pacote-card">
-                <img src="bali.png" alt="Viagem para Bali">
-                <div class="pacote-info">
-                    <h3>Bali</h3>
-                    <p>7 dias de relaxamento e cultura.</p>
-                    <p class="price">€1500</p>
-                    <button class="cta-button">Ver Detalhes</button>
-                </div>
-            </div>
-
-            <div class="pacote-card">
-                <img src="paris.png" alt="Viagem para Paris">
-                <div class="pacote-info">
-                    <h3>Paris</h3>
-                    <p>Romance e história em 5 dias.</p>
-                    <p class="price">€980</p>
-                    <button class="cta-button">Ver Detalhes</button>
-                </div>
-            </div>
-
-            <div class="pacote-card">
-                <img src="ny.png" alt="Viagem para Nova Iorque">
-                <div class="pacote-info">
-                    <h3>Nova Iorque</h3>
-                    <p>A cidade que nunca dorme.</p>
-                    <p class="price">€1800</p>
-                    <button class="cta-button">Ver Detalhes</button>
-                </div>
-            </div>
-
-            <div class="pacote-card">
-                <img src="porto.png" alt="Viagem para Porto">
-                <div class="pacote-info">
-                    <h3>Porto</h3>
-                    <p>Escapada de fim de semana na Invicta.</p>
-                    <p class="price">€450</p>
-                    <button class="cta-button">Ver Detalhes</button>
-                </div>
-            </div>
+        <div class="cta-contatos-section text-center">
+            <h3>Deseja um roteiro personalizado?</h3>
+            <p>Fale connosco e planeamos a viagem dos seus sonhos.</p>
+            <a href="contacto.html" class="cta-button">Ir para Contactos</a>
         </div>
     </section>
 
+    <div id="modal-detalhes" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+
     <footer class="rich-footer">
-        <div class="container text-center"> 
-            <div class="social-links"> 
-                <a href="#" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            </div>
-            <div class="text-xs">
-                <p>&copy; 2025 Atlas Viagens. Todos os direitos reservados.</p>
-                <p class="mt-1">Website desenvolvido por 
-                    <a href="https://nadiairina.github.io/Nadia-Portfolio/" 
-                        target="_blank" 
-                        class="developer-link">
-                        Nadia Irina.
-                    </a>
-                </p>
-            </div>
+        <div class="container text-center">
+            <p>&copy; 2025 Atlas Viagens. Todos os direitos reservados.</p>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
