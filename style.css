@@ -812,3 +812,271 @@ blockquote {
     margin-top: -5px; /* Une a resposta à pergunta amarela */
     text-align: center;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- ESTILOS BASE --- */
+:root {
+    --primary-color: #5D54A4;
+    --secondary-color: #FFC300;
+    --text-color: #333;
+    --light-bg: #f8f8f8;
+    --grey-text: #6b7280;
+    --light-border: #f3f4f6;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: white;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; }
+p { margin-bottom: 15px; }
+
+/* Header e Navegação */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    transition: color var(--transition-speed); 
+}
+
+header nav a {
+    padding: 0.5rem 1rem;
+}
+
+header a:hover {
+    color: var(--secondary-color);
+}
+
+.logo-img {
+    height: 100px;
+    width: auto;
+    display: block; 
+}
+
+.right-icon {
+    font-size: 1.5rem; 
+    color: white;
+    cursor: pointer;
+}
+
+/* Secções Comuns */
+section {
+    padding: 120px 5%;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* --- BANNER INICIAL (INDEX) --- */
+#home.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('back.png'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+#home.hero h1, #home.hero h3 { color: white; }
+
+/* --- PÁGINA SOBRE (CORRIGIDO: ECRÃ INTEIRO E OPACIDADE) --- */
+#sobre.institucional {
+    /* Opacidade ajustada para 0.45 para a imagem aparecer mais */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url('fundo.png'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ecrã inteiro */
+    width: 100%; /* Força largura total */
+    max-width: 100% !important; 
+    padding: 150px 0; /* Espaço para o conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+#sobre.institucional h2, #sobre.institucional h3 {
+    color: var(--primary-color) !important;
+}
+
+/* --- GRID DE PACOTES E CARDS --- */
+.home-teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pacote-card {
+    border: 1px solid var(--light-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-speed);
+}
+
+.pacote-card img { width: 100%; height: 200px; object-fit: cover; }
+.pacote-info { padding: 20px; text-align: left; }
+.price { font-size: 1.4rem; font-weight: 700; color: var(--secondary-color); }
+
+/* --- BOTÕES --- */
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-top: 25px; 
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-margin-top {
+    display: inline-block;
+    margin-top: 60px !important;
+}
+
+/* --- TESTEMUNHOS EM LINHA --- */
+.testemunhos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.testemunho-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    padding: 30px;
+    background-color: var(--light-bg);
+    border-radius: 10px;
+}
+
+/* --- FAQ (CORRIGIDO: ESPAÇAMENTO E BALÕES) --- */
+.faq {
+    margin-top: 100px;
+    padding-bottom: 120px;
+}
+
+.faq-item {
+    max-width: 800px;
+    margin: 25px auto; /* Mais espaço entre perguntas */
+}
+
+.faq-question {
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 22px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.faq-answer {
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px; /* Agora é um balão completo */
+    margin-top: 20px; /* ESPAÇO REAL ENTRE PERGUNTA E RESPOSTA */
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.faq-answer.hidden { display: none; }
+
+/* --- GALERIA E ANIMAÇÕES (TEU CÓDIGO ORIGINAL) --- */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.galeria-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s;
+}
+
+.galeria-item:hover img { transform: scale(1.1); }
+
+.galeria-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+/* --- CONTACTO (TEU CÓDIGO ORIGINAL) --- */
+.contact-body form {
+    max-width: 600px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-body form input, .contact-body form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* --- FOOTER E RESPONSIVIDADE --- */
+.rich-footer {
+    background-color: var(--light-bg);
+    padding: 50px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    header nav { display: none; position: absolute; width: 100%; top: 100%; left: 0; background: var(--primary-color); flex-direction: column; }
+    header nav.active { display: flex; }
+    #sobre.institucional { min-height: auto; padding: 100px 5%; }
+    .testemunhos-grid { flex-direction: column; align-items: center; }
+}
