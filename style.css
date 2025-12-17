@@ -708,3 +708,55 @@ blockquote {
         display: inline-block;
     }
 }
+/* ... (Manter todo o seu código anterior de variáveis e estilos base) ... */
+
+/* --- NOVOS AJUSTES DE ESPAÇAMENTO E LAYOUT --- */
+
+/* 1. Afastar o botão "Ver Todos os Pacotes" dos cartões acima */
+.btn-margin-top {
+    display: inline-block;
+    margin-top: 60px !important; /* Aumenta a distância dos botões "Ver Detalhes" */
+}
+
+/* 2. Afastar o título da secção dos testemunhos */
+.section-title-margin {
+    margin-bottom: 50px !important;
+}
+
+/* 3. Colocar testemunhos em linha horizontal */
+.testemunhos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* Garante que no mobile eles quebrem a linha se necessário */
+    margin-bottom: 50px; /* Espaço antes do botão de baixo */
+}
+
+/* Ajuste no card de testemunho para caberem em linha */
+.testemunho-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    margin: 0 !important; /* Remove o margin: 30px auto anterior */
+    padding: 30px;
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Ajuste responsivo para Testemunhos no Mobile */
+@media (max-width: 768px) {
+    .testemunhos-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testemunho-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ... (Manter o restante do seu código original abaixo) ... */
