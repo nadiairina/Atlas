@@ -1096,3 +1096,24 @@ section {
     #sobre.institucional { min-height: auto; padding: 100px 5%; }
     .testemunhos-grid { flex-direction: column; align-items: center; }
 }
+/* Nova classe para o conteúdo textual abaixo do banner */
+.sobre-conteudo {
+    background-color: white; /* Garante que o fundo do texto é branco */
+    color: var(--text-color); /* Usa a cor de texto escura definida nas variáveis */
+    text-align: left; /* Alinhamento à esquerda para melhor leitura */
+    padding-top: 80px; /* Espaço entre a imagem e o início do texto */
+    padding-bottom: 80px; /* Espaço antes da próxima secção (Processo) */
+}
+
+.sobre-conteudo h3 {
+    margin-top: 30px;
+    color: var(--primary-color); /* Mantém o roxo nos subtítulos */
+}
+
+/* Ajuste do Banner (ID #sobre) */
+#sobre.institucional {
+    min-height: 60vh; /* Reduzi de 100vh para 60vh para não ocupar o ecrã todo, já que o texto está em baixo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
