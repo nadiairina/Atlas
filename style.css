@@ -1309,16 +1309,18 @@ header nav a:hover, header nav a.active {
     }
 }
 /* 1. Ajuste do Banner para ser IGUAL ao do Sobre */
+/* Regra específica para igualar o banner de serviços ao da página sobre */
 #servicos-banner.institucional {
-    height: 80vh; /* Força a mesma altura */
-    min-height: 80vh;
+    height: 80vh !important;
+    min-height: 80vh !important;
     display: flex;
     align-items: center;
     justify-content: center;
     background-size: cover;
     background-position: center;
-    position: relative;
-    margin-bottom: 50px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 /* 2. Centralização absoluta dos filtros */
