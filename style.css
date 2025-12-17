@@ -1229,3 +1229,52 @@ section {
 @media (max-width: 600px) {
     .pacote-list { grid-template-columns: 1fr; }
 }
+header {
+    display: flex;
+    justify-content: space-between; /* Mantém o logo num lado e o resto no outro */
+    align-items: center;
+    padding: 20px 5%;
+    position: relative; /* Necessário para o posicionamento absoluto do nav */
+}
+
+/* Forçar o menu (nav) para o centro absoluto da página */
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav a:hover, header nav a.active {
+    color: var(--primary-color);
+}
+
+/* Garante que o botão de contacto e o ícone à direita não fiquem em cima do menu */
+.btn-contacto, .right-icon {
+    position: relative;
+    z-index: 10;
+}
+
+/* Responsividade: No telemóvel, o menu não pode estar no centro absoluto */
+@media (max-width: 768px) {
+    header nav {
+        position: static;
+        transform: none;
+        display: none; /* O JS controla a exibição aqui */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+    
+    header nav.active {
+        display: flex;
+    }
+}
