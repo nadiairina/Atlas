@@ -1375,3 +1375,9 @@ header nav a:hover, header nav a.active {
     width: 100%;
     text-align: center;
 }
+/* Linha amarela por baixo do item ativo no menu */
+header nav a.active {
+    color: var(--secondary-color) !important; /* Garante que fica amarelo */
+    border-bottom: 3px solid var(--secondary-color); /* Cria a linha amarela */
+    padding-bottom: 5px; /* Espaço entre o texto e a linha */
+}
