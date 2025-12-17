@@ -1117,3 +1117,34 @@ section {
     align-items: center;
     justify-content: center;
 }
+/* Estilo para a nova secção amarela */
+.fundo-amarelo {
+    background-color: var(--secondary-color) !important; /* Cor amarela dos ícones */
+    padding: 100px 5%;
+}
+
+/* Centralização do conteúdo */
+.container-centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centra o texto horizontalmente */
+    max-width: 900px; /* Largura reduzida para melhor leitura no centro */
+    margin: 0 auto;
+}
+
+/* Ajuste das cores dos títulos dentro do fundo amarelo para contraste */
+.fundo-amarelo h3 {
+    color: var(--primary-color); /* Mantém os subtítulos roxos */
+    margin-top: 40px;
+}
+
+.fundo-amarelo p {
+    color: var(--text-color); /* Mantém o texto escuro para legibilidade */
+    font-size: 1.1rem;
+}
+
+/* Garante que o banner de cima não ocupa o ecrã todo */
+#sobre.institucional {
+    min-height: 50vh; 
+}
