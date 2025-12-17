@@ -158,10 +158,21 @@ section {
 }
 
 /* 2. Página Sobre (ID #sobre) */
+/* Procura este bloco e substitui por este código */
 #sobre.institucional {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('fundo.png'); 
-    color: white; /* Adiciona cor branca e sombra de texto APENAS nos banners com fundo */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fundo.png'); 
+    min-height: 100vh; /* Ocupa o ecrã inteiro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white; /* Texto branco para contrastar com o fundo escuro */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Adiciona ou atualiza isto logo abaixo para garantir que os títulos ficam brancos */
+#sobre.institucional h2, 
+#sobre.institucional h3 {
+    color: white !important;
 }
 
 /* 3. Página Contacto (ID #contacto) - AGORA APENAS PARA O CABEÇALHO */
@@ -551,10 +562,11 @@ blockquote {
 }
 
 /* FAQ (Sobre) - Estilos para Acordeão */
+/* Atualiza este bloco */
 .faq-item {
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
-    text-align: left;
+    max-width: 800px; 
+    margin: 25px auto; /* Aumentado para 25px para dar mais respiração */
+    border-bottom: none; 
 }
 
 .faq-question {
@@ -573,13 +585,17 @@ blockquote {
     background-color: var(--light-bg);
 }
 
+/* Substitui o conteúdo deste bloco */
 .faq-answer {
-    padding: 0 20px 15px;
+    background-color: transparent; /* Remove o fundo branco se preferires */
+    border: none !important; /* Retira todas as bordas */
+    border-top: none !important;
+    border-radius: 0;
+    text-align: center;
+    padding: 20px;
+    margin-top: 15px; /* Cria o espaço para não ficar colado ao botão amarelo */
     line-height: 1.6;
-    max-height: 500px;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.4s ease-out;
-    opacity: 1;
+    transition: all 0.4s ease-out;
 }
 
 .faq-answer.hidden {
