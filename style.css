@@ -1339,3 +1339,51 @@ header nav a:hover, header nav a.active {
     font-size: 3.5rem;
     margin-bottom: 0;
 }
+/* 1. Ajuste do Banner (Igual ao da página sobre) */
+#servicos-banner.institucional {
+    min-height: 80vh; /* Mesma altura definida no teu style (1).css original para #sobre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+/* 2. Espaçamento dos Filtros */
+.search-bar {
+    margin-bottom: 60px; /* Aumenta o espaço entre filtros e pacotes */
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* 3. Alinhamento dos Botões (Flexbox nos Cards) */
+.pacote-card {
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    height: 100%; /* Garante que todos os cards tenham o mesmo tamanho na fila */
+}
+
+.pacote-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz esta área ocupar todo o espaço disponível */
+}
+
+.pacote-info p {
+    flex-grow: 1; /* Empurra o preço e o botão para baixo se o texto for curto */
+    margin-bottom: 15px;
+}
+
+.pacote-info .price {
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: auto; /* Garante que o preço comece a contar do fundo */
+}
+
+.pacote-info .cta-button {
+    align-self: stretch; /* Botão ocupa a largura toda ou mantém o seu tamanho */
+    margin-top: 10px;
+}
