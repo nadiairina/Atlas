@@ -758,5 +758,57 @@ blockquote {
         max-width: 100%;
     }
 }
+/* --- AJUSTES NA PÁGINA SOBRE --- */
 
-/* ... (Manter o restante do seu código original abaixo) ... */
+/* 1. Imagem em ecrã inteiro e mais clara */
+#sobre.institucional {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('fundo.png'); 
+    min-height: 100vh; /* Ocupa o ecrã inteiro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--text-color); /* Texto escuro para contrastar com fundo claro */
+    text-shadow: none; /* Remove a sombra para ficar mais limpo */
+}
+
+/* Garantir que os títulos no banner claro sejam roxos */
+#sobre.institucional h2, 
+#sobre.institucional h3 {
+    color: var(--primary-color) !important;
+}
+
+/* 2. Afastar a secção FAQ dos cartões acima */
+.faq {
+    margin-top: 100px; /* Grande espaçamento vertical */
+    padding-bottom: 120px;
+}
+
+/* 3. Perguntas Frequentes no centro com fundo amarelo */
+.faq-item {
+    max-width: 800px; /* Limita a largura para ficar elegante no centro */
+    margin: 15px auto; /* Centraliza horizontalmente e dá espaço entre perguntas */
+    border-bottom: none; /* Remove a linha de baixo antiga */
+}
+
+.faq-question {
+    background-color: var(--secondary-color); /* Amarelo dos ícones */
+    color: var(--primary-color); /* Texto roxo para contraste */
+    text-align: center; /* Centraliza o texto da pergunta */
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.faq-question:hover {
+    background-color: #FFB300; /* Um tom de amarelo ligeiramente mais escuro ao passar o rato */
+}
+
+.faq-answer {
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    margin-top: -5px; /* Une a resposta à pergunta amarela */
+    text-align: center;
+}
