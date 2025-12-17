@@ -1308,82 +1308,68 @@ header nav a:hover, header nav a.active {
         display: flex;
     }
 }
-/* Ajuste do Banner de Serviços (idêntico ao Sobre) */
+/* 1. Ajuste do Banner para ser IGUAL ao do Sobre */
 #servicos-banner.institucional {
-    min-height: 80vh; /* Mesma altura que definimos para a página sobre */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    position: relative;
-}
-
-/* Overlay escura opcional para ajudar a ler o título sobre a imagem */
-#servicos-banner::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Escurece a imagem em 30% */
-    z-index: 1;
-}
-
-.banner-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* Garante que o H1 do banner seja grande e imponente */
-#servicos-banner h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0;
-}
-/* 1. Ajuste do Banner (Igual ao da página sobre) */
-#servicos-banner.institucional {
-    min-height: 80vh; /* Mesma altura definida no teu style (1).css original para #sobre */
+    height: 80vh; /* Força a mesma altura */
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-size: cover;
     background-position: center;
-    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
 }
 
-/* 2. Espaçamento dos Filtros */
+/* 2. Centralização absoluta dos filtros */
 .search-bar {
-    margin-bottom: 60px; /* Aumenta o espaço entre filtros e pacotes */
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto 60px auto; /* Aumenta margem baixo para afastar dos pacotes */
+    max-width: 800px;
 }
 
-/* 3. Alinhamento dos Botões (Flexbox nos Cards) */
+/* 3. Alinhamento dos Botões no fundo do card */
+.pacote-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
 .pacote-card {
     display: flex;
-    flex-direction: column; /* Organiza o conteúdo em coluna */
-    height: 100%; /* Garante que todos os cards tenham o mesmo tamanho na fila */
+    flex-direction: column; /* Faz o card ser uma coluna flexível */
+    height: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .pacote-info {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Faz esta área ocupar todo o espaço disponível */
+    flex-grow: 1; /* Ocupa o espaço todo para empurrar o resto */
 }
 
+.pacote-info h3 { margin-bottom: 10px; }
+
 .pacote-info p {
-    flex-grow: 1; /* Empurra o preço e o botão para baixo se o texto for curto */
+    flex-grow: 1; /* Empurra o preço e botão para baixo */
     margin-bottom: 15px;
 }
 
 .pacote-info .price {
     font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-top: auto; /* Reforça o alinhamento no fundo */
     margin-bottom: 15px;
-    margin-top: auto; /* Garante que o preço comece a contar do fundo */
 }
 
 .pacote-info .cta-button {
-    align-self: stretch; /* Botão ocupa a largura toda ou mantém o seu tamanho */
-    margin-top: 10px;
+    width: 100%;
+    text-align: center;
 }
