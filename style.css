@@ -1397,28 +1397,28 @@ header nav a:hover, header nav a.active {
     width: 100% !important;
     box-sizing: border-box;
 }
-/* UNIFORMIZAR TÍTULOS DOS BANNERS */
+/* UNIFORMIZAR TÍTULOS DOS BANNERS PARA ROXO */
 #home.hero h1, 
 #sobre.institucional h2, 
 .contact-header h2, 
 .gallery-header h2, 
 #servicos-banner.institucional h2 {
-    color: white !important;
-    font-size: 2.8rem !important; /* Tamanho do título da Home */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
-    font-weight: 600 !important;
+    color: #5D54A4 !important; /* O roxo da sua marca */
+    font-size: 2.8rem !important; 
+    text-shadow: none !important; /* Removemos a sombra para leitura limpa sobre o roxo */
+    font-weight: 700 !important;
     margin-bottom: 20px !important;
     text-align: center !important;
 }
 
-/* Ajuste para os subtítulos (H3 ou P) nos banners */
+/* Ajuste para os subtítulos em roxo também */
 #home.hero h3, 
 #sobre.institucional h3, 
 .contact-header p, 
 .gallery-header p, 
 #servicos-banner.institucional p {
-    color: white !important;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7) !important;
+    color: #5D54A4 !important;
+    text-shadow: none !important;
     font-size: 1.2rem !important;
-    opacity: 0.9;
+    font-weight: 600 !important;
 }
