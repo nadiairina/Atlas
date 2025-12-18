@@ -28,34 +28,71 @@
     </header>
 
     <section class="contact-header">
-        <div class="container">
-            <h2>Fale Connosco</h2>
-            
-        </div>
+        <h2>Contacte-nos</h2>
+        <p>Estamos aqui para transformar a sua viagem de sonho em realidade.</p>
     </section>
 
-    <section id="contacto" class="contact-body">
-        <div class="container">
-            
-            <div class="contact-info-wrapper">
-                <span class="contact-item">
-                    <i class="fas fa-envelope"></i> 
-                    <strong>Email:</strong> <a href="mailto:info@atlasviagens.pt">info@atlasviagens.pt</a>
-                </span>
-                <span class="divider">|</span>
-                <span class="contact-item">
-                    <i class="fas fa-phone"></i> 
-                    <strong>Telefone:</strong> <a href="tel:+351987654321">+351 987 654 321</a>
-                </span>
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info-column">
+                <h2>Entre em Contacto</h2>
+                <p>Tem dúvidas sobre um destino ou quer um roteiro personalizado? A nossa equipa está pronta para ajudar.</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span>E-mail</span>
+                        <p>geral@atlasviagens.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <span>Telefone</span>
+                        <p>+351 987 654 321</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <span>Escritório</span>
+                        <p>Lisboa, Portugal (Atendimento Digital)</p>
+                    </div>
+                </div>
+
+                <div class="social-links-contact">
+                    <p>Siga-nos nas redes sociais:</p>
+                    <div class="social-icons-row">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
 
-            <form action="#" method="POST">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="text" name="assunto" placeholder="Assunto" required>
-                <textarea name="mensagem" placeholder="Mensagem" required></textarea>
-                <button type="submit" class="cta-button">Enviar Mensagem</button>
-            </form>
+            <div class="contact-form-column">
+                <form action="#" method="POST" class="modern-form">
+                    <div class="form-group">
+                        <label>Nome Completo</label>
+                        <input type="text" name="nome" placeholder="Ex: Maria Silva" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail de Contacto</label>
+                        <input type="email" name="email" placeholder="exemplo@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Assunto</label>
+                        <input type="text" name="assunto" placeholder="Ex: Orçamento para Grécia" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensagem</label>
+                        <textarea name="mensagem" placeholder="Diga-nos como podemos ajudar..." required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Enviar Mensagem</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -73,6 +110,7 @@
             </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
