@@ -190,7 +190,7 @@ section {
 /* 2. Página Sobre (ID #sobre) */
 /* Procura este bloco e substitui por este código */
 #sobre.institucional {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('fundo.png'); 
+    background-image: url('fundo.png'); 
     min-height: 100vh; /* Ocupa o ecrã inteiro */
     display: flex;
     flex-direction: column;
@@ -964,7 +964,7 @@ section {
 /* --- PÁGINA SOBRE (CORRIGIDO: ECRÃ INTEIRO E OPACIDADE) --- */
 #sobre.institucional {
     /* Opacidade ajustada para 0.45 para a imagem aparecer mais */
-    background-image: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), url('fundo.png'); 
+    background-image: url('fundo.png'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh; /* Ecrã inteiro */
