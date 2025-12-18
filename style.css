@@ -1478,3 +1478,29 @@ header nav a.active {
     padding-bottom: 0;
     color: var(--secondary-color) !important; /* Mantém apenas a cor amarela no texto */
 }
+/* 1. Reduzir o espaço entre o banner e "Porquê Viajar..." */
+.features {
+    padding-top: 80px !important; /* Estava 150px, agora mais equilibrado */
+    padding-bottom: 60px !important;
+}
+
+/* 2. Afastar o título "Os Mais Vendidos do Mês" dos cartões */
+.pacotes-home h2 {
+    margin-bottom: 50px !important; /* Cria distância para os cartões */
+}
+
+/* 3. Ajustar o botão "Ver Todos os Pacotes" */
+/* Aproxima dos cartões e afasta dos testemunhos */
+.cta-button.secondary-cta {
+    margin-top: 20px !important;    /* Mais perto dos cartões */
+    margin-bottom: 100px !important; /* Mais afastado do título "O que os Nossos Clientes Dizem" */
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 4. Garantir que a grid de cartões não tenha uma margem inferior gigante */
+.home-teaser-grid {
+    margin-bottom: 0 !important;
+}
