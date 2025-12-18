@@ -1393,12 +1393,21 @@ header nav a.active {
     display: block !important;
 }
 
-/* 2. Força todas as imagens a preencherem o espaço sem deformar */
-.galeria-img-container img, 
-.pacote-img img, 
-.card-img img {
+/* FORÇAR TODOS OS BANNERS A TEREM O MESMO TAMANHO (BASEADO NA HOME) */
+#home.hero, 
+#sobre.institucional, 
+.contact-header, 
+.gallery-header, 
+#servicos-banner.institucional {
+    min-height: 70vh !important; /* Altura da tua primeira página */
+    height: 70vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5% !important; /* Remove paddings excessivos que mudam o tamanho visual */
+    background-size: cover !important;
+    background-position: center !important;
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; 
-    object-position: center !important;
+    box-sizing: border-box;
 }
