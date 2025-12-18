@@ -1422,3 +1422,29 @@ header nav a:hover, header nav a.active {
     font-size: 1.2rem !important;
     opacity: 0.9;
 }
+/* ALINHAMENTO VERTICAL IDENTICO PARA TODOS OS BANNERS */
+#home.hero, 
+#sobre.institucional, 
+.contact-header, 
+.gallery-header, 
+#servicos-banner.institucional {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important; /* Centraliza verticalmente */
+    align-items: center !important;     /* Centraliza horizontalmente */
+    padding-top: 0 !important;          /* Remove padding que empurra o título para baixo */
+    padding-bottom: 0 !important;
+    height: 70vh !important;            /* Mantém a altura igual à da Home */
+    min-height: 70vh !important;
+}
+
+/* Garante que o título roxo não tem margens de topo que o desalinhem */
+#home.hero h1, 
+#sobre.institucional h2, 
+.contact-header h2, 
+.gallery-header h2, 
+#servicos-banner.institucional h2 {
+    margin-top: 0 !important;
+    color: #5D54A4 !important; /* O teu roxo */
+    font-size: 2.8rem !important;
+}
