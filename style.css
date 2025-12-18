@@ -1472,3 +1472,9 @@ header nav a:hover, header nav a.active {
     color: var(--text-color);
     font-style: italic;
 }
+/* Remover a linha amarela do item ativo */
+header nav a.active {
+    border-bottom: none !important; /* Remove a linha */
+    padding-bottom: 0;
+    color: var(--secondary-color) !important; /* Mantém apenas a cor amarela no texto */
+}
