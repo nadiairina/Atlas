@@ -1504,3 +1504,14 @@ header nav a.active {
 .home-teaser-grid {
     margin-bottom: 0 !important;
 }
+/* AFASTAR A SECÇÃO DE TESTEMUNHOS DO BOTÃO DE PACOTES */
+#testemunhos {
+    margin-top: 80px !important; /* Cria o espaço que faltava entre o botão e o título */
+    padding-top: 40px !important;
+}
+
+/* Garante que o título específico dos clientes tenha um respiro */
+#testemunhos h2 {
+    margin-bottom: 40px !important;
+    text-align: center;
+}
