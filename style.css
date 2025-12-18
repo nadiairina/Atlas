@@ -214,7 +214,7 @@ section {
 
 /* Aplica o fundo e estilo de banner apenas ao cabeçalho (topo) */
 .contact-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('imagens/contacto-bg.jpg'); 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('form.png'); 
     background-position: center; 
     background-size: cover; 
     background-repeat: no-repeat;
@@ -237,7 +237,7 @@ section {
 
 /* NOVO: BANNER DA GALERIA */
 .gallery-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('back.png'); /* Assumir imagem */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('backgal.png'); /* Assumir imagem */
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     padding: 150px 5%;
