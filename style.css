@@ -1440,3 +1440,35 @@ header nav a:hover, header nav a.active {
     align-items: center !important;
     text-align: center !important;
 }
+/* Aumentar o botão principal da Home */
+#home.hero .cta-button {
+    padding: 18px 45px !important; /* Aumentado significativamente */
+    font-size: 1.2rem !important;
+    letter-spacing: 1px;
+}
+
+/* Espaço entre o Banner e o Título "Porquê Viajar..." */
+.features {
+    padding-top: 150px !important; /* Aumenta o respiro após o banner */
+}
+/* Nova secção elegante para o manifesto */
+.manifesto-section {
+    background-color: white !important; /* Remove o fundo amarelo */
+    padding: 100px 10%;
+    margin-bottom: 80px; /* Afasta da secção de Processo */
+}
+
+.manifesto-content {
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 4px solid var(--primary-color); /* Detalhe lateral roxo */
+    padding-left: 40px;
+    text-align: left;
+}
+
+.manifesto-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    font-style: italic;
+}
