@@ -1514,3 +1514,80 @@ header nav a.active {
 .cta-button.secondary-cta {
     margin-bottom: 40px !important; /* Reduzi de 100px para 40px */
 }
+/* DESIGN MODERNO DE CONTACTO */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.contact-info-column h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background: #f0efff;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.info-item span {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--grey-text);
+}
+
+/* Cartão do Formulário */
+.contact-form-column {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.modern-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modern-form input, .modern-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fdfdfd;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+.modern-form input:focus, .modern-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background: white;
+}
+
+.modern-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Responsivo para telemóvel */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        margin: 40px auto;
+    }
+}
