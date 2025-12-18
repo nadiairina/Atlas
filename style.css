@@ -237,7 +237,7 @@ section {
 
 /* NOVO: BANNER DA GALERIA */
 .gallery-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagens/gallery-bg.jpg'); /* Assumir imagem */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('back.png'); /* Assumir imagem */
     color: white;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     padding: 150px 5%;
