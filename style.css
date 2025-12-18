@@ -808,7 +808,7 @@ blockquote {
 
 /* 1. Imagem em ecrã inteiro e mais clara */
 #sobre.institucional {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('fundo.png'); 
+    background-image: url('fundo.png'); 
     min-height: 100vh; /* Ocupa o ecrã inteiro */
     display: flex;
     flex-direction: column;
