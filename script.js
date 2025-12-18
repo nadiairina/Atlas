@@ -4,8 +4,8 @@ const pacotesData = [
     { id: 2, destino: 'Porto', preco: 450, imagem: 'porto.png', descricao: 'Escapada de fim de semana na Invicta.', detalhes: 'Cruzeiro no Douro, prova de vinhos e estadia em hotel boutique.', precoCategoria: 'baixo' },
     { id: 3, destino: 'Paris', preco: 980, imagem: 'paris.png', descricao: 'Romance e história em 5 dias.', detalhes: 'Entradas no Louvre, Torre Eiffel e passeio no rio Sena.', precoCategoria: 'baixo' },
     { id: 4, destino: 'Nova Iorque', preco: 1800, imagem: 'ny.png', descricao: 'A cidade que nunca dorme.', detalhes: 'Alojamento em Times Square e passe para os principais museus.', precoCategoria: 'alto' },
-    { id: 5, destino: 'Atenas & Ilhas Gregas', preco: 1250, imagem: 'atenas.png', descricao: '8 dias de história e praias paradisíacas.', detalhes: 'Visita à Acrópole e ferry para Mykonos e Santorini.', precoCategoria: 'alto' },
-    { id: 6, destino: 'Aventuras na Tailândia', preco: 1799, imagem: 'tailandia.png', descricao: '15 dias de cultura e selvas.', detalhes: 'Tour por Bangkok, templos de Chiang Mai e praias de Phuket.', precoCategoria: 'alto' }
+    { id: 5, destino: 'Atenas & Ilhas Gregas', preco: 1250, imagem: 'greece.png', descricao: '8 dias de história e praias paradisíacas.', detalhes: 'Visita à Acrópole e ferry para Mykonos e Santorini.', precoCategoria: 'alto' },
+    { id: 6, destino: 'Aventuras na Tailândia', preco: 1799, imagem: 'tai.png', descricao: '15 dias de cultura e selvas.', detalhes: 'Tour por Bangkok, templos de Chiang Mai e praias de Phuket.', precoCategoria: 'alto' }
 ];
 
 let debounceTimer;
