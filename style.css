@@ -1375,23 +1375,9 @@ header nav a:hover, header nav a.active {
     width: 100%;
     text-align: center;
 }
-/* Linha amarela por baixo do item ativo no menu */
-header nav a.active {
-    color: var(--secondary-color) !important; /* Garante que fica amarelo */
-    border-bottom: 3px solid var(--secondary-color); /* Cria a linha amarela */
-    padding-bottom: 5px; /* Espaço entre o texto e a linha */
-}
-/* REGRA GLOBAL PARA TODAS AS PÁGINAS */
 
-/* 1. Garante que todos os contentores de imagem tenham a mesma altura */
-.galeria-img-container, 
-.pacote-img, 
-.card-img {
-    height: 280px !important; /* Ajusta este valor para o tamanho que desejas */
-    width: 100% !important;
-    overflow: hidden !important;
-    display: block !important;
-}
+
+
 
 /* FORÇAR TODOS OS BANNERS A TEREM O MESMO TAMANHO (BASEADO NA HOME) */
 #home.hero, 
