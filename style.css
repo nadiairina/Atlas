@@ -1591,3 +1591,27 @@ header nav a.active {
         margin: 40px auto;
     }
 }
+/* ALINHAR TÍTULOS DE CONTACTO À ESQUERDA */
+.contact-info-column {
+    text-align: left !important; /* Força o alinhamento do texto à esquerda */
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start !important; /* Alinha o ícone e o texto pelo topo */
+    justify-content: flex-start !important; /* Garante que tudo começa à esquerda */
+    text-align: left !important;
+}
+
+.info-item div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important; /* Alinha o span e o p à esquerda */
+}
+
+.info-item span {
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--primary-color); /* O teu roxo */
+    text-align: left !important;
+}
