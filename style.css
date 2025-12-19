@@ -1615,3 +1615,94 @@ header nav a.active {
     color: var(--primary-color); /* O teu roxo */
     text-align: left !important;
 }
+/* ============================================================
+   DESIGN MODERNO DE CONTACTO - 2 COLUNAS
+   ============================================================ */
+
+/* 1. Estrutura de Grelha (Grid) */
+.contact-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Esquerda: Info | Direita: Form */
+    gap: 60px !important;
+    max-width: 1100px;
+    margin: 80px auto !important;
+    padding: 0 20px;
+    align-items: start !important;
+}
+
+/* 2. Alinhamento da Coluna de Informações */
+.contact-info-column {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; /* TUDO PARA A ESQUERDA */
+    text-align: left !important;
+}
+
+.contact-info-column h2 {
+    text-align: left !important;
+    margin-bottom: 30px !important;
+}
+
+/* 3. Itens de Contacto (Ícone + Texto) */
+.info-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    margin-bottom: 35px !important;
+    text-align: left !important;
+}
+
+.info-item i {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    background: #f0efff;
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 55px;
+    text-align: center;
+}
+
+/* Títulos: E-mail, Telefone, Escritório */
+.info-item span {
+    display: block !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    color: var(--primary-color) !important;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    text-align: left !important;
+}
+
+.info-item p {
+    margin: 0 !important;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-align: left !important;
+}
+
+/* 4. Cartão do Formulário (Direita) */
+.contact-form-column {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.modern-form input, 
+.modern-form textarea {
+    width: 100% !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid #eee !important;
+    border-radius: 10px !important;
+    background: #fdfdfd !important;
+    font-family: inherit;
+}
+
+/* Responsividade: Volta a 1 coluna no telemóvel */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr !important;
+        margin: 40px auto !important;
+    }
+}
