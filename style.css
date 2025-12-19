@@ -1752,3 +1752,42 @@ header nav a.active {
         display: none !important;
     }
 }
+/* ============================================================
+   SOLUÇÃO DEFINITIVA PARA PACOTES NO TELEMÓVEL
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Forçar o contentor a esquecer que é uma grelha */
+    .services-container, 
+    .packages-grid, 
+    #servicos-banner.institucional {
+        display: block !important; 
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    /* 2. Forçar CADA CARTÃO a ser um bloco independente e ocupar tudo */
+    .service-card, 
+    .package-card {
+        display: block !important;
+        width: 90% !important; /* Dá um pouco de margem nas pontas */
+        margin: 0 auto 30px auto !important; /* Centra o card e dá espaço abaixo */
+        float: none !important; /* Garante que não flutuam */
+        clear: both !important;
+    }
+
+    /* 3. Ajustar as imagens para não ficarem deformadas */
+    .service-card img, 
+    .package-card img {
+        width: 100% !important;
+        height: 250px !important; /* Altura fixa para manter o padrão */
+        object-fit: cover !important;
+        border-radius: 15px 15px 0 0 !important;
+    }
+
+    /* 4. Ajustar o conteúdo interno do card */
+    .package-content, .service-content {
+        padding: 20px !important;
+        text-align: center !important;
+    }
+}
