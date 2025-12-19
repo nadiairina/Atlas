@@ -1791,3 +1791,37 @@ header nav a.active {
         text-align: center !important;
     }
 }
+/* ============================================================
+   FORÇAR EMPILHAMENTO VERTICAL (MOBILE)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Forçar o contentor a ocupar a largura total sem grelha */
+    .services-container, 
+    .packages-grid, 
+    #servicos-banner.institucional {
+        display: block !important;
+        width: 100% !important;
+        padding: 20px 10px !important;
+    }
+
+    /* 2. O SEGREDO: Forçar cada cartão a ignorar larguras antigas */
+    .service-card, 
+    .package-card {
+        display: block !important;
+        width: 100% !important;   /* Ocupa a largura do telemóvel */
+        max-width: 100% !important; 
+        min-width: 100% !important; /* Mata o esmagamento lateral */
+        margin: 0 0 30px 0 !important; /* Espaço entre eles */
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Ajustar as imagens para não ficarem "esticadas" ou "esmagadas" */
+    .service-card img, 
+    .package-card img {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 200px !important;
+        object-fit: cover !important;
+    }
+}
