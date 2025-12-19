@@ -1691,60 +1691,64 @@ header nav a.active {
     }
 }
 /* ============================================================
-   FORÇAR RESPONSIVIDADE (TELEMÓVEL) - COLA NO FIM DE TUDO
+   RESET TOTAL PARA TELEMÓVEL - COLA NO FIM DE TUDO
    ============================================================ */
 
 @media (max-width: 768px) {
-    /* 1. CORRIGIR OS PACOTES (CARDS) ESMAGADOS */
-    /* Forçamos o contentor a deixar de ser uma linha e passar a ser uma coluna */
-    #servicos-banner.institucional, 
+    /* CORREÇÃO DOS PACOTES ESMAGADOS */
     .services-container, 
-    .packages-grid {
-        display: block !important; /* Muda de flex/grid para bloco simples */
-        padding: 20px !important;
+    .packages-grid, 
+    #servicos-banner.institucional {
+        display: block !important; /* Remove as colunas e empilha */
+        width: 100% !important;
+        padding: 10px !important;
     }
 
     .service-card, 
     .package-card {
-        width: 100% !important; /* Ocupa a largura toda */
-        margin-bottom: 30px !important; /* Dá espaço entre os pacotes */
         display: block !important;
+        width: 95% !important; /* Ocupa quase a largura toda */
+        margin: 0 auto 30px auto !important; /* Centra e dá espaço abaixo */
+        min-width: 0 !important;
     }
 
-    /* 2. CORRIGIR O MENU QUE NÃO ABRE OU ESTÁ DESFORMATADO */
+    .service-card img, 
+    .package-card img {
+        width: 100% !important;
+        height: 200px !important; /* Altura fixa para não deformar */
+        object-fit: cover !important;
+    }
+
+    /* CORREÇÃO DO MENU HAMBURGUER */
     header {
-        flex-wrap: wrap !important; /* Permite que o menu desça para a linha seguinte */
+        position: relative !important;
+        justify-content: space-between !important;
     }
 
     nav {
-        display: none !important; /* Esconde o menu por defeito */
+        display: none; /* Escondido por padrão */
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
         width: 100% !important;
+        background: #5D54A4 !important; /* Teu roxo */
         flex-direction: column !important;
-        background: #5D54A4 !important; /* Cor roxa do teu header */
-        padding: 20px 0 !important;
+        z-index: 9999 !important;
     }
 
-    /* Esta classe 'active' precisa de ser ativada pelo teu script.js */
+    /* Quando clicas no menu, esta classe é ativada via JS */
     nav.active {
-        display: flex !important; 
+        display: flex !important;
     }
 
     nav a {
-        display: block !important;
-        padding: 15px !important;
-        color: white !important;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding: 20px !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
 
-    /* 3. AJUSTE DO BANNER (HERO) NO TELEMÓVEL */
-    #home.hero, .contact-header {
-        height: auto !important;
-        min-height: 400px !important;
-        padding: 100px 20px !important;
-    }
-
-    #home.hero h1 {
-        font-size: 2rem !important;
-        line-height: 1.2 !important;
+    /* Esconder ícones desnecessários no mobile se quiseres */
+    .right-icon .fa-user-circle {
+        display: none !important;
     }
 }
