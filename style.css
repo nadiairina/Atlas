@@ -1897,38 +1897,29 @@ header nav a.active {
         border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
 }
-/* UNIFORMIZAR OS BANNERS E TÍTULOS NO TELEMÓVEL */
+/* FORÇAR UNIFORMIZAÇÃO TOTAL - SUBSTITUI O BLOCO ANTERIOR */
 @media (max-width: 768px) {
-    
-    /* 1. Mantém esta parte: Controla o tamanho e posição da imagem de fundo */
-    .contact-header, 
-    .gallery-header, 
-    #servicos-banner.institucional,
-    #home.hero,
-    #sobre.institucional {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding-top: 120px !important; 
-        padding-bottom: 80px !important;
-        min-height: 70vh !important; 
-    }
-
-    /* 2. Esta é a regra nova: Define o tamanho igual para todos os títulos */
+    /* Seleciona TODOS os h1 e h2 que estejam dentro de headers ou secções de banner */
+    header h1, header h2, 
     .contact-header h2, 
     .gallery-header h2, 
-    #servicos-banner.institucional h2,
-    #sobre.institucional h2,
-    #home.hero h1 {
-        font-size: 1.8rem !important; /* Tamanho ajustado para não quebrar */
-        line-height: 1.2 !important;
+    .institucional h2, 
+    .hero h1 {
+        font-size: 1.6rem !important; /* Reduzi um pouco mais para garantir que cabe */
+        line-height: 1.1 !important;
         text-align: center !important;
-        color: white !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.6) !important;
-        width: 100% !important;
-        padding: 0 15px !important;
         display: block !important;
-        margin-bottom: 15px !important;
+        width: 100% !important;
+        margin: 0 auto 10px auto !important;
+        padding: 0 20px !important;
+    }
+
+    /* Garante que o contentor não esmaga o texto */
+    .contact-header, .gallery-header, .institucional, .hero {
+        height: auto !important;
+        min-height: 60vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 }
