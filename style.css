@@ -1930,3 +1930,19 @@ header nav a.active {
         text-shadow: 2px 2px 4px rgba(0,0,0,0.6) !important;
     }
 }
+/* UNIFORMIZAÇÃO TOTAL DE TÍTULOS EM MOBILE */
+@media (max-width: 768px) {
+    /* Alvo: h1 da Hero e h2 de todos os outros cabeçalhos de página */
+    .contact-header h2, 
+    .gallery-header h2, 
+    #servicos-banner.institucional h2,
+    #sobre.institucional h2,
+    #home.hero h1 {
+        font-size: 1.8rem !important; /* Ajusta este valor se quiseres maior ou menor */
+        line-height: 1.2 !important;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+        width: 100% !important;
+        display: block !important;
+    }
+}
