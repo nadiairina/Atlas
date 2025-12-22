@@ -1897,41 +1897,30 @@ header nav a.active {
         border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
 }
-/* FORÇA BRUTA PARA UNIFORMIZAR TODOS OS TÍTULOS NO TELEMÓVEL */
+/* UNIFORMIZAÇÃO FINAL - TODOS OS TÍTULOS DE SECÇÃO */
 @media (max-width: 768px) {
     
-    /* 1. Alinha os contentores */
-    .hero, 
-    .contact-header, 
-    .gallery-header, 
-    .packages-header,
-    .institucional,
-    header[class*="-header"] {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+    /* 1. Alvo: Títulos de Banners (fundo com imagem) */
+    .hero h1, .contact-header h2, .gallery-header h2, .institucional h2, .packages-header h2 {
+        font-size: 1.8rem !important;
         text-align: center !important;
-        padding: 100px 20px 60px 20px !important;
-        min-height: 50vh !important;
+        margin: 0 auto !important;
+        width: 100% !important;
     }
 
-    /* 2. Aplica o mesmo tamanho a QUALQUER título dentro desses blocos */
-    .hero h1, .hero h2,
-    .contact-header h1, .contact-header h2,
-    .gallery-header h1, .gallery-header h2,
-    .packages-header h1, .packages-header h2,
-    .institucional h1, .institucional h2 {
-        font-size: 1.8rem !important; /* Tamanho exato */
-        line-height: 1.2 !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        width: 100% !important;
-        position: static !important;
-        transform: none !important;
-        left: auto !important;
-        top: auto !important;
+    /* 2. Alvo: Títulos de Secções (como "Os Nossos Pacotes" ou "Serviços") */
+    /* Adicionei vários seletores possíveis para garantir que apanha o correto */
+    .services h2, 
+    #services h2, 
+    .pricing h2, 
+    #pricing h2, 
+    .section-title,
+    section h2 { 
+        font-size: 1.8rem !important; /* O mesmo tamanho dos outros */
+        text-align: center !important;
+        margin-top: 40px !important;
+        margin-bottom: 20px !important;
         display: block !important;
-        color: white !important;
+        width: 100% !important;
     }
 }
