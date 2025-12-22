@@ -1947,3 +1947,34 @@ header nav a.active {
         margin-top: 10px !important;
     }
 }
+/* AJUSTE FINAL: UNIFORMIZAR PACOTES COM OS RESTANTES */
+@media (max-width: 768px) {
+    
+    /* Incluímos aqui o .packages-header h2 para igualar aos outros */
+    .contact-header h2, 
+    .gallery-header h2, 
+    .packages-header h2, 
+    #servicos-banner.institucional h2, 
+    #sobre.institucional h2, 
+    #sobre.institucional h1,
+    #home.hero h1 {
+        font-size: 1.8rem !important; /* Tamanho idêntico para todos */
+        text-align: center !important;
+        width: 100% !important;
+        display: block !important;
+        margin: 0 auto !important;
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+    }
+
+    /* Garante que o fundo do banner dos pacotes também se comporta como os outros */
+    .packages-header {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-height: 40vh !important;
+        padding-top: 80px !important;
+    }
+}
