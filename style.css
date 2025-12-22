@@ -1924,3 +1924,56 @@ header nav a.active {
         width: 100% !important;
     }
 }
+/* SOLUÇÃO TOTAL: ALTURAS E TAMANHOS IGUAIS */
+@media (max-width: 768px) {
+    
+    /* 1. Força todas as secções de topo a terem exatamente a mesma altura e comportamento */
+    .hero, 
+    .contact-header, 
+    .gallery-header, 
+    .institucional,
+    header[class*="-header"],
+    section[id*="-banner"] {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important; /* Centra verticalmente */
+        align-items: center !important;     /* Centra horizontalmente */
+        text-align: center !important;
+        
+        height: 350px !important;    /* FORÇA A MESMA ALTURA EM TODAS AS PÁGINAS */
+        min-height: 350px !important;
+        padding-top: 60px !important; /* Espaço apenas para o menu fixo */
+        margin: 0 !important;
+        width: 100% !important;
+        position: relative !important;
+    }
+
+    /* 2. Força TODOS os títulos a serem clones uns dos outros */
+    .hero h1, 
+    .contact-header h2, 
+    .gallery-header h2, 
+    .institucional h2,
+    .institucional h1,
+    header h1, 
+    header h2 {
+        font-size: 1.8rem !important; /* TAMANHO IGUAL PARA TODOS */
+        line-height: 1.2 !important;
+        margin: 0 !important;        /* Remove margens que empurram o texto */
+        padding: 0 20px !important;  /* Margem lateral para não bater nos bordos */
+        width: 100% !important;
+        max-width: 100% !important;
+        
+        /* Reset de posicionamento */
+        position: static !important; 
+        transform: none !important;
+        left: auto !important;
+        top: auto !important;
+        display: block !important;
+    }
+
+    /* 3. Esconder elementos extras que possam estar a empurrar o título nas outras páginas */
+    .hero p, .institucional p {
+        font-size: 1rem !important;
+        margin-top: 10px !important;
+    }
+}
