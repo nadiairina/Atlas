@@ -1897,29 +1897,41 @@ header nav a.active {
         border-bottom: 1px solid rgba(255,255,255,0.1) !important;
     }
 }
-/* FORÇAR UNIFORMIZAÇÃO TOTAL - SUBSTITUI O BLOCO ANTERIOR */
+/* RESOLUÇÃO DEFINITIVA PARA TÍTULOS MOBILE */
 @media (max-width: 768px) {
-    /* Seleciona TODOS os h1 e h2 que estejam dentro de headers ou secções de banner */
-    header h1, header h2, 
-    .contact-header h2, 
-    .gallery-header h2, 
-    .institucional h2, 
-    .hero h1 {
-        font-size: 1.6rem !important; /* Reduzi um pouco mais para garantir que cabe */
-        line-height: 1.1 !important;
+    
+    /* 1. Reset aos contentores para garantir centralização */
+    .contact-header, 
+    .gallery-header, 
+    #servicos-banner.institucional,
+    #home.hero,
+    #sobre.institucional {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
         text-align: center !important;
-        display: block !important;
-        width: 100% !important;
-        margin: 0 auto 10px auto !important;
-        padding: 0 20px !important;
+        min-height: 50vh !important; /* Altura reduzida para mobile */
+        padding: 100px 20px 50px 20px !important;
     }
 
-    /* Garante que o contentor não esmaga o texto */
-    .contact-header, .gallery-header, .institucional, .hero {
-        height: auto !important;
-        min-height: 60vh !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+    /* 2. Unificar H1 e H2 para terem o MESMO tamanho e posição */
+    .contact-header h2, 
+    .gallery-header h2, 
+    #servicos-banner.institucional h2,
+    #sobre.institucional h2,
+    #sobre.institucional h1,
+    #home.hero h1 {
+        font-size: 1.8rem !important; /* Tamanho igual para todos */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        left: 0 !important;
+        position: relative !important;
+        transform: none !important;
+        color: white !important;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+        display: block !important;
     }
 }
