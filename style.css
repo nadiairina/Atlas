@@ -1952,3 +1952,65 @@ section {
     font-weight: 600 !important;
     letter-spacing: 0.5px;
 }
+/* GALERIA - Estilo Mural de Inspiração */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Mais espaço entre fotos */
+    padding: 20px 0;
+}
+
+.galeria-item {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.galeria-item img {
+    transition: transform 0.6s ease;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1); /* Zoom suave na foto */
+}
+
+.galeria-overlay {
+    background: linear-gradient(to top, rgba(93, 84, 164, 0.8), transparent) !important;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+/* PACOTES (SERVIÇOS) - Cartões Elevados */
+.pacote-card {
+    background: #ffffff;
+    border: none !important;
+    padding: 0; /* Imagem encostada ao topo */
+    text-align: left !important;
+}
+
+.pacote-card h3 {
+    padding: 20px 20px 5px 20px;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.pacote-card p {
+    padding: 0 20px 20px 20px;
+    color: #666;
+    font-style: italic; /* Dá um toque mais sofisticado */
+}
+
+.pacote-card .preco {
+    padding: 10px 20px;
+    font-weight: 700;
+    color: var(--text-color);
+    border-top: 1px solid #f0f0f0;
+}
