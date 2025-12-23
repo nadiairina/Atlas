@@ -2703,3 +2703,6 @@ body {
     overflow-x: hidden !important;
     width: 100% !important;
 }
+.logo-link:hover .logo-img {
+    transform: scale(1.05); /* Um aumento muito subtil */
+}
