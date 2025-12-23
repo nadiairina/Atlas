@@ -281,3 +281,68 @@ window.onclick = function(event) {
         fecharLightbox();
     }
 }
+/* --- CONFIGURAÇÃO GLOBAL --- */
+const imagensGaleria = ["france.png", "indo.png", "kyoto.png", "brasil.png", "pira.png", "aurora.png"];
+let indiceAtual = 0;
+
+/* --- ANIMAÇÕES DE REVELAÇÃO (MODERNO & CHIQUE) --- */
+const observarElementos = () => {
+    const observerOptions = { threshold: 0.15 };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Seleciona elementos para animar
+    const targets = document.querySelectorAll('.pacote-card, .mosaico-item, .hero-content, .cta-final-galeria, .gallery-header');
+    targets.forEach(el => {
+        el.classList.add('reveal'); // Prepara o elemento para a animação
+        observer.observe(el);
+    });
+};
+
+/* --- HEADER INTELIGENTE (SCROLL EFFECT) --- */
+const handleHeaderScroll = () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+    } else {
+        header.classList.remove('header-scrolled');
+    }
+};
+
+/* --- LÓGICA DO LIGHTBOX --- */
+function abrirLightbox(index) {
+    indiceAtual = index;
+    const lightbox = document.getElementById('lightbox');
+    const imgGrande = document.getElementById('img-grande');
+    if (!lightbox || !imgGrande) return;
+
+    imgGrande.src = imagensGaleria[indiceAtual];
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function fecharLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+function mudarImagem(direcao) {
+    indiceAtual = (indiceAtual + direcao + imagensGaleria.length) % imagensGaleria.length;
+    document.getElementById('img-grande').src = imagensGaleria[indiceAtual];
+}
+
+/* --- INICIALIZAÇÃO --- */
+document.addEventListener('DOMContentLoaded', () => {
+    observarElementos();
+    window.addEventListener('scroll', handleHeaderScroll);
+    
+    // Fechar lightbox com ESC ou clique fora
+    document.addEventListener('keydown', (e) => { if (e.key === "Escape") fecharLightbox(); });
+    window.onclick = (e) => { if (e.target.id === 'lightbox') fecharLightbox(); };
+});
