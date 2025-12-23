@@ -84,7 +84,7 @@ const pacotesData = [
         id: 6, 
         destino: 'Tailândia: O Reino do Sorriso', 
         preco: 1700, 
-        imagem: 'thailand.png', 
+        imagem: 'tai.png', 
         descricao: 'Templos dourados, mercados vibrantes e águas cristalinas.', 
         detalhes: `
             <h4>Tradição e Natureza</h4>
