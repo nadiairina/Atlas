@@ -2119,3 +2119,42 @@ section {
         grid-template-columns: 1fr; /* 1 coluna em telemóveis */
     }
 }
+/* Garante que o modal permite scroll se o texto for longo */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 10000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    
+    /* ESTAS LINHAS SÃO A SOLUÇÃO: */
+    overflow-y: auto; /* Permite scroll vertical no fundo preto */
+    padding: 20px;    /* Dá margem para não colar aos bordos */
+    align-items: flex-start; /* Alinha ao topo para poderes descer */
+}
+
+.modal-content {
+    background: white;
+    width: 95%;
+    max-width: 800px;
+    margin: 50px auto; /* Garante que o modal não fica colado ao topo do navegador */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    /* Removemos o max-height fixo para o modal crescer conforme o texto */
+}
+
+/* Garante que o botão de fechar (X) acompanha o scroll ou fica fixo */
+.close-modal {
+    position: fixed; /* Fica sempre visível no canto superior direito */
+    right: 30px;
+    top: 20px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+}
