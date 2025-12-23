@@ -2249,3 +2249,14 @@ section {
 .prev { left: 30px; }
 .next { right: 30px; }
 .prev:hover, .next:hover { background: var(--primary-color); }
+}
+
+.gallery-header h1 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Adiciona uma sombra leve para leitura fácil */
+}
+
+.gallery-header p {
+    color: #ffffff;
+    opacity: 0.9;
+}
