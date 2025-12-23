@@ -2494,3 +2494,25 @@ header a:hover, header a.active {
 .rich-footer .social-icon:hover {
     color: var(--secondary-color);
 }
+/* Remove qualquer espaçamento indesejado nos banners */
+.modal-content {
+    max-width: 900px; /* Modal ligeiramente mais largo para a foto brilhar */
+    padding: 0;       /* A imagem encosta no topo e nas laterais */
+    overflow-y: auto;
+}
+
+.modal-header-image {
+    width: 100%;
+    margin: 0;
+    border-radius: 20px 20px 0 0; /* Mantém o arredondado apenas no topo */
+}
+
+/* Garante que o Hero ocupa a largura total do browser */
+#hero {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
