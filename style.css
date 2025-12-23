@@ -2633,3 +2633,33 @@ header a:hover, header a.active {
 body {
     overflow-x: hidden; /* Evita scroll lateral por causa do 100vw */
 }
+/* AJUSTE MÍNIMO PARA BANNERS GIGANTES */
+#hero, .gallery-header, .services-header, .contact-header {
+    width: 100vw !important;
+    height: 75vh !important;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* FORÇAR TÍTULOS DO BANNER A BRANCO */
+#hero h1, .gallery-header h1, .services-header h1, .contact-header h1 {
+    color: white !important;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5) !important;
+}
+
+#hero p, .gallery-header p, .services-header p, .contact-header p {
+    color: white !important;
+}
+
+/* IMPEDIR SCROLL LATERAL */
+body {
+    overflow-x: hidden;
+}
