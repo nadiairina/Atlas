@@ -1,8 +1,8 @@
 /**
- * ATLAS VIAGENS - Script Final de Experiências e Itinerários
+ * ATLAS VIAGENS - Script Consolidado Premium
  */
 
-// 1. Base de Dados Completa com os 6 Destinos e Roteiros
+// 1. Base de Dados de Pacotes
 const pacotesData = [
     { 
         id: 1, 
@@ -97,30 +97,69 @@ const pacotesData = [
     }
 ];
 
+// 2. Variáveis Globais e Galeria
+const imagensGaleria = ["france.png", "indo.png", "kyoto.png", "brasil.png", "pira.png", "aurora.png"];
+let indiceAtual = 0;
 let debounceTimer;
 
-// 2. Inicialização
+// 3. Inicialização e Animações
 document.addEventListener('DOMContentLoaded', () => {
-    // Garantir que renderiza se o grid existir na página
+    // Renderiza pacotes se estiver na página de serviços
     if (document.getElementById('pacotes-grid')) {
         renderizarPacotes(pacotesData);
     }
+    
+    // Configurações Globais
     setupFAQAccordion();
     setupMobileMenu();
     setupModal();
+    observarElementos(); // Ativa animações de revelação
+    
+    // Eventos de Scroll
+    window.addEventListener('scroll', handleHeaderScroll);
+    
+    // Teclado para Lightbox
+    document.addEventListener('keydown', (e) => { 
+        if (e.key === "Escape") {
+            fecharLightbox();
+            fecharModal();
+        }
+    });
 });
 
-// 3. Renderização dos Cards
+/* --- FUNÇÕES DE ANIMAÇÃO E UI --- */
+
+const observarElementos = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    const targets = document.querySelectorAll('.pacote-card, .mosaico-item, .hero-content, .cta-final-galeria, .gallery-header, .faq-item');
+    targets.forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+};
+
+const handleHeaderScroll = () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+    } else {
+        header.classList.remove('header-scrolled');
+    }
+};
+
+/* --- GESTÃO DE PACOTES E FILTROS --- */
+
 function renderizarPacotes(pacotes) {
     const container = document.getElementById('pacotes-grid');
     if (!container) return;
-
-    container.innerHTML = ''; 
-
-    if (pacotes.length === 0) {
-        container.innerHTML = '<p class="text-center">Nenhum destino encontrado para esta busca.</p>';
-        return;
-    }
+    container.innerHTML = pacotes.length === 0 ? '<p class="text-center">Nenhum destino encontrado.</p>' : '';
 
     pacotes.forEach(p => {
         const card = document.createElement('div');
@@ -140,51 +179,6 @@ function renderizarPacotes(pacotes) {
     });
 }
 
-// 4. Lógica da Modal (Itinerários)
-function mostrarDetalhes(id) {
-    const pacote = pacotesData.find(p => p.id === id);
-    const modal = document.getElementById('modal-detalhes');
-    const body = document.getElementById('modal-body');
-
-    if (modal && body) {
-        body.innerHTML = `
-            <div class="modal-header-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('${pacote.imagem}'); height: 200px; background-size: cover; background-position: center; border-radius: 15px 15px 0 0;"></div>
-            <div style="padding: 30px;">
-                <h2 style="color: var(--primary-color); margin-bottom: 10px;">${pacote.destino}</h2>
-                <div class="itinerary-wrapper" style="text-align: left;">
-                    ${pacote.detalhes}
-                </div>
-                <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px;">
-                    <span style="font-size: 1.4rem; font-weight: bold; color: var(--text-color);">Investimento: ${pacote.preco}€</span>
-                    <a href="contacto.html?destino=${encodeURIComponent(pacote.destino)}" class="cta-button">Personalizar Viagem</a>
-                </div>
-            </div>
-        `;
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Bloqueia scroll do fundo
-    }
-}
-
-function setupModal() {
-    const modal = document.getElementById('modal-detalhes');
-    const closeBtn = document.querySelector('.close-modal');
-    
-    if (closeBtn) {
-        closeBtn.onclick = () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        };
-    }
-    
-    window.onclick = (event) => { 
-        if (event.target == modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    };
-}
-
-// 5. Filtros e Pesquisa
 function filtrarPacotes() {
     const termo = document.getElementById('search-input')?.value.toLowerCase() || '';
     const categoria = document.getElementById('filter-price')?.value || 'todos';
@@ -194,7 +188,6 @@ function filtrarPacotes() {
         const matchPreco = categoria === 'todos' || p.precoCategoria === categoria;
         return matchNome && matchPreco;
     });
-
     renderizarPacotes(filtrados);
 }
 
@@ -203,119 +196,47 @@ function handleSearch() {
     debounceTimer = setTimeout(() => filtrarPacotes(), 300);
 }
 
-// 6. FAQ e Menu
-function setupFAQAccordion() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const answer = question.nextElementSibling;
-            const isExpanded = question.getAttribute('aria-expanded') === 'true';
-            
-            faqQuestions.forEach(q => {
-                if(q.nextElementSibling) q.nextElementSibling.classList.add('hidden');
-                q.setAttribute('aria-expanded', 'false');
-            });
+/* --- MODAL E LIGHTBOX --- */
 
-            if (!isExpanded && answer) {
-                answer.classList.remove('hidden');
-                question.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-}
+function mostrarDetalhes(id) {
+    const pacote = pacotesData.find(p => p.id === id);
+    const modal = document.getElementById('modal-detalhes');
+    const body = document.getElementById('modal-body');
 
-function setupMobileMenu() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.querySelector('header nav');
-    if (menuToggle && nav) {
-        menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            const isExpanded = nav.classList.contains('active');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-        });
+    if (modal && body) {
+        body.innerHTML = `
+            <div class="modal-header-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('${pacote.imagem}'); height: 250px; background-size: cover; background-position: center;"></div>
+            <div style="padding: 30px;">
+                <h2 style="color: var(--primary-color);">${pacote.destino}</h2>
+                <div class="itinerary-wrapper">${pacote.detalhes}</div>
+                <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px;">
+                    <span style="font-size: 1.4rem; font-weight: bold;">Investimento: ${pacote.preco}€</span>
+                    <a href="contacto.html?destino=${encodeURIComponent(pacote.destino)}" class="cta-button">Personalizar Viagem</a>
+                </div>
+            </div>
+        `;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     }
 }
-/* --- LÓGICA DA GALERIA LIGHTBOX --- */
 
-// Lista das imagens na mesma ordem do HTML
-const imagensGaleria = [
-    "france.png", 
-    "indo.png", 
-    "kyoto.png", 
-    "brasil.png", 
-    "pira.png", 
-    "aurora.png"
-];
-
-let indiceAtual = 0;
-
-function abrirLightbox(index) {
-    indiceAtual = index;
-    const lightbox = document.getElementById('lightbox');
-    const imgGrande = document.getElementById('img-grande');
-    
-    imgGrande.src = imagensGaleria[indiceAtual];
-    lightbox.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Bloqueia o scroll do site
-}
-
-function fecharLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.body.style.overflow = 'auto'; // Devolve o scroll
-}
-
-function mudarImagem(direcao) {
-    indiceAtual += direcao;
-    
-    // Se chegar ao fim, volta ao início e vice-versa
-    if (indiceAtual >= imagensGaleria.length) indiceAtual = 0;
-    if (indiceAtual < 0) indiceAtual = imagensGaleria.length - 1;
-    
-    document.getElementById('img-grande').src = imagensGaleria[indiceAtual];
-}
-
-// Fechar se o utilizador clicar fora da imagem
-window.onclick = function(event) {
-    const lightbox = document.getElementById('lightbox');
-    if (event.target == lightbox) {
-        fecharLightbox();
+function fecharModal() {
+    const modal = document.getElementById('modal-detalhes');
+    if(modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 }
-/* --- CONFIGURAÇÃO GLOBAL --- */
-const imagensGaleria = ["france.png", "indo.png", "kyoto.png", "brasil.png", "pira.png", "aurora.png"];
-let indiceAtual = 0;
 
-/* --- ANIMAÇÕES DE REVELAÇÃO (MODERNO & CHIQUE) --- */
-const observarElementos = () => {
-    const observerOptions = { threshold: 0.15 };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
+function setupModal() {
+    const modal = document.getElementById('modal-detalhes');
+    window.onclick = (e) => { 
+        if (e.target == modal) fecharModal();
+        if (e.target.id === 'lightbox') fecharLightbox();
+    };
+}
 
-    // Seleciona elementos para animar
-    const targets = document.querySelectorAll('.pacote-card, .mosaico-item, .hero-content, .cta-final-galeria, .gallery-header');
-    targets.forEach(el => {
-        el.classList.add('reveal'); // Prepara o elemento para a animação
-        observer.observe(el);
-    });
-};
-
-/* --- HEADER INTELIGENTE (SCROLL EFFECT) --- */
-const handleHeaderScroll = () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-    } else {
-        header.classList.remove('header-scrolled');
-    }
-};
-
-/* --- LÓGICA DO LIGHTBOX --- */
+// Funções da Galeria
 function abrirLightbox(index) {
     indiceAtual = index;
     const lightbox = document.getElementById('lightbox');
@@ -328,8 +249,11 @@ function abrirLightbox(index) {
 }
 
 function fecharLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-    document.body.style.overflow = 'auto';
+    const lightbox = document.getElementById('lightbox');
+    if(lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 }
 
 function mudarImagem(direcao) {
@@ -337,12 +261,22 @@ function mudarImagem(direcao) {
     document.getElementById('img-grande').src = imagensGaleria[indiceAtual];
 }
 
-/* --- INICIALIZAÇÃO --- */
-document.addEventListener('DOMContentLoaded', () => {
-    observarElementos();
-    window.addEventListener('scroll', handleHeaderScroll);
-    
-    // Fechar lightbox com ESC ou clique fora
-    document.addEventListener('keydown', (e) => { if (e.key === "Escape") fecharLightbox(); });
-    window.onclick = (e) => { if (e.target.id === 'lightbox') fecharLightbox(); };
-});
+/* --- UTILITÁRIOS --- */
+
+function setupFAQAccordion() {
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            question.setAttribute('aria-expanded', question.getAttribute('aria-expanded') !== 'true');
+            if (answer) answer.classList.toggle('hidden');
+        });
+    });
+}
+
+function setupMobileMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.querySelector('header nav');
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    }
+}
