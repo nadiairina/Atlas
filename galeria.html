@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria | Atlas Viagens </title>
+    <title>Galeria | Atlas Viagens</title>
     <meta name="description" content="Inspire-se com fotos de destinos inesquecíveis.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -11,139 +11,110 @@
 </head>
 <body>
     <header>
-      <a href="index.html" class="logo-link">
-        <img src="atlas.png" alt="Atlas Viagens Logo" class="logo-img">
-    </a>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="servicos.html">Pacotes</a>
-        <a href="galeria.html">Galeria</a>
-        <a href="contacto.html" class="btn-contacto">Contacto</a>
-    </nav>
-    <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">
-        <i class="fas fa-user-circle"></i>
-        <i class="fas fa-bars"></i>
-    </div> 
+        <a href="index.html" class="logo-link">
+            <img src="atlas.png" alt="Atlas Viagens Logo" class="logo-img">
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="servicos.html">Pacotes</a>
+            <a href="galeria.html" class="active">Galeria</a>
+            <a href="contacto.html" class="btn-contacto">Contacto</a>
+        </nav>
+        <div class="right-icon" id="menu-toggle" role="button" aria-expanded="false" aria-label="Abrir Menu">
+            <i class="fas fa-user-circle"></i>
+            <i class="fas fa-bars"></i>
+        </div> 
     </header>
 
-    <section class="gallery-header">
-        <div class="container">
-            <h2>As Nossas Experiências</h2>
-            
+    <section class="gallery-header" style="padding: 60px 0 20px 0;">
+        <div class="container text-center">
+            <h1>Fragmentos de Sonhos</h1>
+            <p>Explore momentos capturados ao redor do mundo e deixe-se inspirar.</p>
         </div>
     </section>
 
-    <section id="galeria" class="galeria-body">
+    <section class="galeria-body">
         <div class="container">
-            
-            <div class="galeria-grid">
-                
-                <div class="galeria-item">
-                    <div class="galeria-img-container">
-                        <img src="france.png" alt="Paris, França" loading="lazy">
-                        <div class="galeria-overlay">
-                            <span>Ver Destino</span>
-                        </div>
-                    </div>
-                    <div class="galeria-caption">
-                        <h3>Paris, França</h3>
-                        <p>A cidade das luzes em 5 dias inesquecíveis.</p>
-                        <a href="contacto.html" class="secondary-cta small-button">Saber Mais</a>
+            <div class="mosaico-grid" id="mosaico-grid">
+                <div class="mosaico-item" onclick="abrirLightbox(0)">
+                    <img src="france.png" alt="Paris, França">
+                    <div class="mosaico-info">
+                        <span>Europa</span>
+                        <p>Paris, França</p>
                     </div>
                 </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-container">
-                        <img src="indo.png" alt="Bali, Indonésia" loading="lazy">
-                        <div class="galeria-overlay">
-                            <span>Ver Destino</span>
-                        </div>
-                    </div>
-                    <div class="galeria-caption">
-                        <h3>Bali, Indonésia</h3>
-                        <p>Relaxamento, templos e arrozais em 7 dias.</p>
-                        <a href="contacto.html" class="secondary-cta small-button">Saber Mais</a>
+                <div class="mosaico-item tall" onclick="abrirLightbox(1)">
+                    <img src="indo.png" alt="Bali, Indonésia">
+                    <div class="mosaico-info">
+                        <span>Ásia</span>
+                        <p>Bali, Indonésia</p>
                     </div>
                 </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-container">
-                        <img src="kyoto.png" alt="Kyoto, Japão" loading="lazy">
-                        <div class="galeria-overlay">
-                            <span>Ver Destino</span>
-                        </div>
-                    </div>
-                    <div class="galeria-caption">
-                        <h3>Kyoto, Japão</h3>
-                        <p>Tradição e modernidade em 10 dias.</p>
-                        <a href="contacto.html" class="secondary-cta small-button">Saber Mais</a>
+                <div class="mosaico-item wide" onclick="abrirLightbox(2)">
+                    <img src="kyoto.png" alt="Kyoto, Japão">
+                    <div class="mosaico-info">
+                        <span>Ásia</span>
+                        <p>Kyoto, Japão</p>
                     </div>
                 </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-container">
-                        <img src="brasil.png" alt="Rio de Janeiro, Brasil" loading="lazy">
-                        <div class="galeria-overlay">
-                            <span>Ver Destino</span>
-                        </div>
-                    </div>
-                    <div class="galeria-caption">
-                        <h3>Rio de Janeiro, Brasil</h3>
-                        <p>Aventura e praias brasileiras em 4 dias.</p>
-                        <a href="contacto.html" class="secondary-cta small-button">Saber Mais</a>
+                <div class="mosaico-item" onclick="abrirLightbox(3)">
+                    <img src="brasil.png" alt="Rio de Janeiro, Brasil">
+                    <div class="mosaico-info">
+                        <span>América do Sul</span>
+                        <p>Rio de Janeiro, Brasil</p>
                     </div>
                 </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-container">
-                        <img src="pira.png" alt="Pirâmides do Egito" loading="lazy">
-                        <div class="galeria-overlay">
-                            <span>Ver Destino</span>
-                        </div>
-                    </div>
-                    <div class="galeria-caption">
-                        <h3>Egito Antigo</h3>
-                        <p>Cruzeiro no Nilo e Pirâmides em 8 dias.</p>
-                        <a href="contacto.html" class="secondary-cta small-button">Saber Mais</a>
+                <div class="mosaico-item tall" onclick="abrirLightbox(4)">
+                    <img src="pira.png" alt="Pirâmides do Egito">
+                    <div class="mosaico-info">
+                        <span>África</span>
+                        <p>Egito Antigo</p>
                     </div>
                 </div>
-
-                <div class="galeria-item">
-                    <div class="galeria-img-container">
-                        <img src="aurora.png" alt="Aurora Boreal no Alasca" loading="lazy">
-                        <div class="galeria-overlay">
-                            <span>Ver Destino</span>
-                        </div>
-                    </div>
-                    <div class="galeria-caption">
-                        <h3>Aurora Boreal</h3>
-                        <p>6 dias em busca das luzes do norte.</p>
-                        <a href="contacto.html" class="secondary-cta small-button">Saber Mais</a>
+                <div class="mosaico-item" onclick="abrirLightbox(5)">
+                    <img src="aurora.png" alt="Aurora Boreal">
+                    <div class="mosaico-info">
+                        <span>Norte da Europa</span>
+                        <p>Islândia</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="cta-final-galeria" style="text-align: center; padding: 80px 20px; background: #f9f9f9;">
+        <div class="container">
+            <h2>Pronto para criar as suas próprias memórias?</h2>
+            <p style="margin-bottom: 30px; color: #666;">Deixe-nos tratar de todos os detalhes do seu próximo roteiro.</p>
+            <a href="contacto.html" class="cta-button">Falar com um Especialista</a>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="fecharLightbox()">&times;</span>
+        <button class="prev" onclick="mudarImagem(-1)">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="img-grande" src="" alt="Imagem em destaque">
+        </div>
+        <button class="next" onclick="mudarImagem(1)">&#10095;</button>
+    </div>
 
     <footer class="rich-footer">
         <div class="container text-center"> 
             <div class="social-links"> 
-                <a href="#" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             </div>
             <div class="text-xs">
                 <p>&copy; 2025 Atlas Viagens. Todos os direitos reservados.</p>
                 <p class="mt-1">Website desenvolvido por 
-                    <a href="https://nadiairina.github.io/Nadia-Portfolio/" 
-                        target="_blank" 
-                        class="developer-link">
-                        Nadia Irina.
-                    </a>
+                    <a href="https://nadiairina.github.io/Nadia-Portfolio/" target="_blank" class="developer-link">Nadia Irina.</a>
                 </p>
             </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
