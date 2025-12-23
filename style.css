@@ -2543,3 +2543,13 @@ header a:hover, header a.active {
     margin: 0 auto;
     padding: 0 20px;
 }
+/* Adiciona isto ao teu style.css para o formulário de contacto */
+.contact-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: -80px; /* Faz o formulário sobrepor-se à foto do banner */
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
