@@ -2260,3 +2260,50 @@ section {
     color: #ffffff;
     opacity: 0.9;
 }
+/* --- ANIMAÇÕES DE REVEAL --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.2, 0, 0.2, 1); /* Curva suave e elegante */
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- HEADER BOUTIQUE --- */
+header {
+    transition: all 0.4s ease;
+    padding: 20px 0;
+}
+
+header.header-scrolled {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px); /* Efeito de vidro fosco */
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- DETALHES DE REFINAMENTO --- */
+body {
+    line-height: 1.7; /* Melhor legibilidade */
+    color: #333;
+}
+
+.cta-button {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+/* Garante que o título branco na galeria funciona */
+.gallery-header h1 {
+    color: white !important;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
