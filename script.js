@@ -1,11 +1,41 @@
 // 1. Base de Dados Completa (6 Destinos)
 const pacotesData = [
-    { id: 1, destino: 'Bali', preco: 1500, imagem: 'bali.png', descricao: '7 dias de relaxamento e cultura.', detalhes: 'Inclui resorts de luxo, visitas a templos e guia local.', precoCategoria: 'alto' },
-    { id: 2, destino: 'Porto', preco: 450, imagem: 'porto.png', descricao: 'Escapada de fim de semana na Invicta.', detalhes: 'Cruzeiro no Douro, prova de vinhos e estadia em hotel boutique.', precoCategoria: 'baixo' },
-    { id: 3, destino: 'Paris', preco: 980, imagem: 'paris.png', descricao: 'Romance e história em 5 dias.', detalhes: 'Entradas no Louvre, Torre Eiffel e passeio no rio Sena.', precoCategoria: 'baixo' },
-    { id: 4, destino: 'Nova Iorque', preco: 1800, imagem: 'ny.png', descricao: 'A cidade que nunca dorme.', detalhes: 'Alojamento em Times Square e passe para os principais museus.', precoCategoria: 'alto' },
-    { id: 5, destino: 'Atenas & Ilhas Gregas', preco: 1250, imagem: 'greece.png', descricao: '8 dias de história e praias paradisíacas.', detalhes: 'Visita à Acrópole e ferry para Mykonos e Santorini.', precoCategoria: 'alto' },
-    { id: 6, destino: 'Aventuras na Tailândia', preco: 1799, imagem: 'tai.png', descricao: '15 dias de cultura e selvas.', detalhes: 'Tour por Bangkok, templos de Chiang Mai e praias de Phuket.', precoCategoria: 'alto' }
+    { 
+        id: 1, 
+        destino: 'Bali: O Refúgio dos Deuses', 
+        preco: 1500, 
+        imagem: 'bali.png', 
+        descricao: 'Sinta a serenidade dos templos ancestrais e o abraço da natureza tropical.', 
+        detalhes: 'Uma jornada desenhada para quem procura paz. Descubra retiros escondidos entre arrozais e a hospitalidade calorosa do povo balinês.', 
+        precoCategoria: 'alto' 
+    },
+    { 
+        id: 2, 
+        destino: 'Porto: Alma e Tradição', 
+        preco: 450, 
+        imagem: 'porto.png', 
+        descricao: 'Caminhe pelas ruelas da Ribeira onde o rio Douro conta histórias antigas.', 
+        detalhes: 'Um convite para saborear a vida. Inclui momentos de prova de vinhos em caves históricas e o conforto de um hotel boutique no coração da cidade.', 
+        precoCategoria: 'baixo' 
+    },
+    { 
+        id: 3, 
+        destino: 'Paris: A Cidade das Luzes', 
+        preco: 980, 
+        imagem: 'paris.png', 
+        descricao: 'Deixe-se encantar pela elegância das avenidas e pela arte que respira em cada esquina.', 
+        detalhes: 'Onde o romance encontra a história. Viva a experiência parisiense através da sua gastronomia delicada e dos seus museus icónicos.', 
+        precoCategoria: 'baixo' 
+    },
+    { 
+        id: 5, 
+        destino: 'Grécia: O Azul Infinito', 
+        preco: 1250, 
+        imagem: 'greece.png', 
+        descricao: 'Onde o branco das casas encontra o azul mais puro do Mediterrâneo.', 
+        detalhes: 'Perca-se nos labirintos de Santorini e Mykonos. Uma viagem focada no descanso, no sol e na gastronomia fresca das ilhas.', 
+        precoCategoria: 'alto' 
+    }
 ];
 
 let debounceTimer;
