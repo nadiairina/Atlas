@@ -2553,3 +2553,47 @@ header a:hover, header a.active {
     z-index: 10;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
+/* --- RESET E FORÇA BRUTA PARA BANNERS GIGANTES --- */
+#hero {
+    width: 100vw !important;
+    height: 70vh !important; /* Altura de impacto */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    margin-top: 0 !important;
+    margin-bottom: 50px !important;
+    
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    overflow: hidden;
+}
+
+/* Overlay escuro para garantir que o texto branco se lê sempre */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+/* --- CORREÇÃO DO CONTAINER --- */
+/* Garante que o corpo da página não coma a largura do Hero */
+body {
+    overflow-x: hidden; /* Evita scroll lateral por causa do 100vw */
+}
