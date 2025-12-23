@@ -133,15 +133,21 @@ const observarElementos = () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                const delay = parseFloat(entry.target.dataset.delay || 0);
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, delay);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.15 }); // Limite de visibilidade para ativar
 
     const targets = document.querySelectorAll('.pacote-card, .mosaico-item, .hero-content, .cta-final-galeria, .gallery-header, .faq-item');
+    let delay = 0; // Começa o delay
     targets.forEach(el => {
         el.classList.add('reveal');
+        el.dataset.delay = delay; // Guarda o delay como um atributo de dados
         observer.observe(el);
+        delay += 100; // Incrementa o delay para o próximo elemento (100ms)
     });
 };
 
