@@ -235,3 +235,49 @@ function setupMobileMenu() {
         });
     }
 }
+/* --- LÓGICA DA GALERIA LIGHTBOX --- */
+
+// Lista das imagens na mesma ordem do HTML
+const imagensGaleria = [
+    "france.png", 
+    "indo.png", 
+    "kyoto.png", 
+    "brasil.png", 
+    "pira.png", 
+    "aurora.png"
+];
+
+let indiceAtual = 0;
+
+function abrirLightbox(index) {
+    indiceAtual = index;
+    const lightbox = document.getElementById('lightbox');
+    const imgGrande = document.getElementById('img-grande');
+    
+    imgGrande.src = imagensGaleria[indiceAtual];
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Bloqueia o scroll do site
+}
+
+function fecharLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Devolve o scroll
+}
+
+function mudarImagem(direcao) {
+    indiceAtual += direcao;
+    
+    // Se chegar ao fim, volta ao início e vice-versa
+    if (indiceAtual >= imagensGaleria.length) indiceAtual = 0;
+    if (indiceAtual < 0) indiceAtual = imagensGaleria.length - 1;
+    
+    document.getElementById('img-grande').src = imagensGaleria[indiceAtual];
+}
+
+// Fechar se o utilizador clicar fora da imagem
+window.onclick = function(event) {
+    const lightbox = document.getElementById('lightbox');
+    if (event.target == lightbox) {
+        fecharLightbox();
+    }
+}
