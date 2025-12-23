@@ -9,6 +9,11 @@
     --grey-text: #6b7280; /* Cor para texto do footer */
     --light-border: #f3f4f6; /* Cor para borda do footer */
     --transition-speed: 0.3s; /* NOVO: Variável para transições */
+    --primary-color: #5D54A4;
+    --secondary-color: #FFC300;
+    --accent-soft: #f0effb; /* Novo: Roxo muito suave para fundos */
+    --text-main: #2d2e32;
+    --spacing-section: 100px; /* Mais espaço entre secções */
 }
 
 * {
@@ -1914,4 +1919,36 @@ header nav a.active {
         width: 100% !important;
         display: block !important;
     }
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+section {
+    padding: var(--spacing-section) 20px; /* Dá "ar" ao site */
+}
+
+/* Efeito Premium nos Cards de Destino */
+.pacote-card, .galeria-item {
+    border: none !important;
+    border-radius: 20px !important;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+    background: white;
+}
+
+.pacote-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(93, 84, 164, 0.15) !important;
+}
+
+/* Botões mais orgânicos */
+.cta-button {
+    border-radius: 50px !important;
+    padding: 15px 35px !important;
+    text-transform: none !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
 }
