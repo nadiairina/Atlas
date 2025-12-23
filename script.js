@@ -1,16 +1,8 @@
-// 1. Base de Dados Completa (6 Destinos)
-Compreendido! Como tens 6 pacotes no total, o ficheiro script.js tem de refletir todos eles com os seus respetivos itinerários detalhados para que o site não pareça incompleto.
-
-Aqui tens o ficheiro script.js completo e final, pronto a substituir o teu atual.
-
-JavaScript
-
 /**
  * ATLAS VIAGENS - Script Final de Experiências e Itinerários
- * Focado em 6 destinos com roteiros detalhados e sem termos técnicos.
  */
 
-// 1. Base de Dados Completa com os 6 Destinos
+// 1. Base de Dados Completa com os 6 Destinos e Roteiros
 const pacotesData = [
     { 
         id: 1, 
@@ -109,23 +101,24 @@ let debounceTimer;
 
 // 2. Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('pacote-list')) {
+    // Garantir que renderiza se o grid existir na página
+    if (document.getElementById('pacotes-grid')) {
         renderizarPacotes(pacotesData);
     }
     setupFAQAccordion();
     setupMobileMenu();
-    setupModal(); // Nova função
+    setupModal();
 });
 
-// 3. Renderização dos Cards (Grelha)
+// 3. Renderização dos Cards
 function renderizarPacotes(pacotes) {
-    const container = document.getElementById('pacote-list');
+    const container = document.getElementById('pacotes-grid');
     if (!container) return;
 
     container.innerHTML = ''; 
 
     if (pacotes.length === 0) {
-        container.innerHTML = '<p class="text-center">Nenhum pacote encontrado para esta busca.</p>';
+        container.innerHTML = '<p class="text-center">Nenhum destino encontrado para esta busca.</p>';
         return;
     }
 
@@ -137,15 +130,17 @@ function renderizarPacotes(pacotes) {
             <div class="pacote-info">
                 <h3>${p.destino}</h3>
                 <p>${p.descricao}</p>
-                <p class="price">Desde €${p.preco}</p>
-                <button class="cta-button" onclick="mostrarDetalhes(${p.id})">Ver Detalhes</button>
+                <div class="pacote-footer">
+                    <span class="preco">desde ${p.preco}€</span>
+                    <button class="cta-button small" onclick="mostrarDetalhes(${p.id})">Ver Roteiro</button>
+                </div>
             </div>
         `;
         container.appendChild(card);
     });
 }
 
-// 4. Lógica da Modal (Pormenores)
+// 4. Lógica da Modal (Itinerários)
 function mostrarDetalhes(id) {
     const pacote = pacotesData.find(p => p.id === id);
     const modal = document.getElementById('modal-detalhes');
@@ -153,26 +148,43 @@ function mostrarDetalhes(id) {
 
     if (modal && body) {
         body.innerHTML = `
-            <h2 style="color: var(--primary-color);">${pacote.destino}</h2>
-            <div style="margin: 20px 0; text-align: left; line-height: 1.6;">
-                <p><strong>Destaques do Pacote:</strong></p>
-                <p>${pacote.detalhes}</p>
+            <div class="modal-header-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('${pacote.imagem}'); height: 200px; background-size: cover; background-position: center; border-radius: 15px 15px 0 0;"></div>
+            <div style="padding: 30px;">
+                <h2 style="color: var(--primary-color); margin-bottom: 10px;">${pacote.destino}</h2>
+                <div class="itinerary-wrapper" style="text-align: left;">
+                    ${pacote.detalhes}
+                </div>
+                <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px;">
+                    <span style="font-size: 1.4rem; font-weight: bold; color: var(--text-color);">Investimento: ${pacote.preco}€</span>
+                    <a href="contacto.html?destino=${encodeURIComponent(pacote.destino)}" class="cta-button">Personalizar Viagem</a>
+                </div>
             </div>
-            <p class="price" style="font-size: 1.8rem; color: #333;">Total: €${pacote.preco}</p>
-            <a href="contacto.html" class="cta-button" style="display:inline-block; margin-top:20px;">Reservar Agora</a>
         `;
         modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Bloqueia scroll do fundo
     }
 }
 
 function setupModal() {
     const modal = document.getElementById('modal-detalhes');
     const closeBtn = document.querySelector('.close-modal');
-    if (closeBtn) closeBtn.onclick = () => modal.style.display = 'none';
-    window.onclick = (event) => { if (event.target == modal) modal.style.display = 'none'; };
+    
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+    }
+    
+    window.onclick = (event) => { 
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
 }
 
-// 5. Filtros e Pesquisa (Restaurado do original)
+// 5. Filtros e Pesquisa
 function filtrarPacotes() {
     const termo = document.getElementById('search-input')?.value.toLowerCase() || '';
     const categoria = document.getElementById('filter-price')?.value || 'todos';
@@ -191,18 +203,20 @@ function handleSearch() {
     debounceTimer = setTimeout(() => filtrarPacotes(), 300);
 }
 
-// 6. FAQ e Menu (Restaurado do original)
+// 6. FAQ e Menu
 function setupFAQAccordion() {
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
             const isExpanded = question.getAttribute('aria-expanded') === 'true';
+            
             faqQuestions.forEach(q => {
-                q.nextElementSibling.classList.add('hidden');
+                if(q.nextElementSibling) q.nextElementSibling.classList.add('hidden');
                 q.setAttribute('aria-expanded', 'false');
             });
-            if (!isExpanded) {
+
+            if (!isExpanded && answer) {
                 answer.classList.remove('hidden');
                 question.setAttribute('aria-expanded', 'true');
             }
