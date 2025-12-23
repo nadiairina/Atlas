@@ -2096,3 +2096,26 @@ section {
     z-index: 10001;
     text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
+/* Configuração para 2 linhas de 3 pacotes */
+#pacotes-grid {
+    display: grid;
+    /* Força 3 colunas de tamanho igual */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Espaço entre os cartões */
+    padding: 40px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Garante que em tablets e telemóveis o layout não quebre */
+@media (max-width: 1024px) {
+    #pacotes-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    #pacotes-grid {
+        grid-template-columns: 1fr; /* 1 coluna em telemóveis */
+    }
+}
