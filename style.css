@@ -2249,7 +2249,7 @@ section {
 .prev { left: 30px; }
 .next { right: 30px; }
 .prev:hover, .next:hover { background: var(--primary-color); }
-}
+
 
 .gallery-header h1 {
     color: #ffffff !important;
