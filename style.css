@@ -2014,3 +2014,85 @@ section {
     color: var(--text-color);
     border-top: 1px solid #f0f0f0;
 }
+/* --- DESIGN DO MODAL DE ITINERÁRIO --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 10000; 
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px); /* Efeito de vidro fosco no fundo */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 850px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Estilo da Lista de Itinerário (O "Acompanhamento") */
+.itinerario-lista {
+    list-style: none;
+    padding: 20px 0;
+    position: relative;
+}
+
+.itinerario-lista li {
+    margin-bottom: 20px;
+    padding-left: 30px;
+    position: relative;
+    border-left: 2px solid var(--primary-color);
+    margin-left: 15px;
+}
+
+.itinerario-lista li strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.nota-especial {
+    background: #f0effb;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid var(--secondary-color);
+    margin-top: 25px;
+    font-size: 0.95rem;
+}
+
+/* Botão dentro do Modal */
+.modal-footer-info .cta-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.modal-footer-info .cta-button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 35px;
+    cursor: pointer;
+    color: white;
+    z-index: 10001;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
