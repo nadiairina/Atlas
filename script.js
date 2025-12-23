@@ -1,12 +1,31 @@
 // 1. Base de Dados Completa (6 Destinos)
+Compreendido! Como tens 6 pacotes no total, o ficheiro script.js tem de refletir todos eles com os seus respetivos itinerários detalhados para que o site não pareça incompleto.
+
+Aqui tens o ficheiro script.js completo e final, pronto a substituir o teu atual.
+
+JavaScript
+
+/**
+ * ATLAS VIAGENS - Script Final de Experiências e Itinerários
+ * Focado em 6 destinos com roteiros detalhados e sem termos técnicos.
+ */
+
+// 1. Base de Dados Completa com os 6 Destinos
 const pacotesData = [
     { 
         id: 1, 
         destino: 'Bali: O Refúgio dos Deuses', 
         preco: 1500, 
         imagem: 'bali.png', 
-        descricao: 'Sinta a serenidade dos templos ancestrais e o abraço da natureza tropical.', 
-        detalhes: 'Uma jornada desenhada para quem procura paz. Descubra retiros escondidos entre arrozais e a hospitalidade calorosa do povo balinês.', 
+        descricao: 'Sinta a serenidade dos templos ancestrais e a natureza tropical.', 
+        detalhes: `
+            <h4>O Seu Itinerário Personalizado</h4>
+            <ul class="itinerario-lista">
+                <li><strong>Dia 1-2:</strong> Imersão em Ubud, com caminhadas pelos campos de arroz ao amanhecer e visitas a santuários locais.</li>
+                <li><strong>Dia 3-4:</strong> Ritual de purificação espiritual nas águas sagradas de Tirta Empul com guia local.</li>
+                <li><strong>Dia 5-7:</strong> Relaxamento nas praias de areia branca de Uluwatu e jantar ao pôr do sol sobre as falésias.</li>
+            </ul>
+            <p class="nota-especial"><strong>Incluímos:</strong> Vilas privadas com piscina, transporte exclusivo e curadoria de experiências autênticas.</p>`, 
         precoCategoria: 'alto' 
     },
     { 
@@ -14,26 +33,74 @@ const pacotesData = [
         destino: 'Porto: Alma e Tradição', 
         preco: 450, 
         imagem: 'porto.png', 
-        descricao: 'Caminhe pelas ruelas da Ribeira onde o rio Douro conta histórias antigas.', 
-        detalhes: 'Um convite para saborear a vida. Inclui momentos de prova de vinhos em caves históricas e o conforto de um hotel boutique no coração da cidade.', 
+        descricao: 'Caminhe pelas ruelas da Ribeira onde o Douro conta histórias.', 
+        detalhes: `
+            <h4>A Experiência na Invicta</h4>
+            <ul class="itinerario-lista">
+                <li><strong>Sábado:</strong> Passeio privado pelo centro histórico, visita guiada a pé e almoço tradicional numa taberna escondida.</li>
+                <li><strong>Domingo:</strong> Travessia das seis pontes em barco privado e prova de vinhos raros numa cave familiar em Gaia.</li>
+            </ul>
+            <p class="nota-especial"><strong>Incluímos:</strong> Estadia em Hotel Boutique com vista para o rio e acompanhamento para reservas gastronómicas.</p>`, 
         precoCategoria: 'baixo' 
     },
     { 
         id: 3, 
-        destino: 'Paris: A Cidade das Luzes', 
+        destino: 'Paris: A Cidade da Elegância', 
         preco: 980, 
         imagem: 'paris.png', 
-        descricao: 'Deixe-se encantar pela elegância das avenidas e pela arte que respira em cada esquina.', 
-        detalhes: 'Onde o romance encontra a história. Viva a experiência parisiense através da sua gastronomia delicada e dos seus museus icónicos.', 
+        descricao: 'Romance e cultura em cada esquina da capital francesa.', 
+        detalhes: `
+            <h4>Momentos Parisienses</h4>
+            <ul class="itinerario-lista">
+                <li><strong>Dia 1-2:</strong> Passeio pelos jardins de Tuileries e visita exclusiva ao Louvre com foco nas obras-primas.</li>
+                <li><strong>Dia 3-5:</strong> Exploração de Montmartre, o bairro dos artistas, e cruzeiro noturno pelo Sena sob as luzes da cidade.</li>
+            </ul>
+            <p class="nota-especial"><strong>Incluímos:</strong> Alojamento em hotel de charme no bairro de Le Marais e passes de acesso prioritário.</p>`, 
         precoCategoria: 'baixo' 
     },
     { 
+        id: 4, 
+        destino: 'Nova Iorque: O Ritmo da Metrópole', 
+        preco: 1800, 
+        imagem: 'ny.png', 
+        descricao: 'Viva a energia contagiante da cidade que nunca dorme.', 
+        detalhes: `
+            <h4>A Experiência Americana</h4>
+            <ul class="itinerario-lista">
+                <li><strong>Dia 1-3:</strong> Caminhada pelo Central Park e subida ao topo do Summit One Vanderbilt para a melhor vista da ilha.</li>
+                <li><strong>Dia 4-6:</strong> Noite na Broadway com espetáculo incluído e exploração da gastronomia multicultural de Brooklyn.</li>
+            </ul>
+            <p class="nota-especial"><strong>Incluímos:</strong> Hotel de luxo em Manhattan e planeamento de rotas a pé personalizadas.</p>`, 
+        precoCategoria: 'alto' 
+    },
+    { 
         id: 5, 
-        destino: 'Grécia: O Azul Infinito', 
+        destino: 'Atenas & Ilhas Gregas', 
         preco: 1250, 
         imagem: 'greece.png', 
-        descricao: 'Onde o branco das casas encontra o azul mais puro do Mediterrâneo.', 
-        detalhes: 'Perca-se nos labirintos de Santorini e Mykonos. Uma viagem focada no descanso, no sol e na gastronomia fresca das ilhas.', 
+        descricao: 'Onde o branco das casas encontra o azul mais puro do mar.', 
+        detalhes: `
+            <h4>Odisseia pelo Mar Egeu</h4>
+            <ul class="itinerario-lista">
+                <li><strong>Dia 1-2:</strong> Descoberta da Acrópole de Atenas e jantar romântico no bairro histórico de Plaka.</li>
+                <li><strong>Dia 3-8:</strong> Viagem de ferry para Santorini e Mykonos, com tempo livre para explorar vilas e praias escondidas.</li>
+            </ul>
+            <p class="nota-especial"><strong>Incluímos:</strong> Logística de ferries entre ilhas e hotéis com vista para a caldeira.</p>`, 
+        precoCategoria: 'alto' 
+    },
+    { 
+        id: 6, 
+        destino: 'Tailândia: O Reino do Sorriso', 
+        preco: 1700, 
+        imagem: 'thailand.png', 
+        descricao: 'Templos dourados, mercados vibrantes e águas cristalinas.', 
+        detalhes: `
+            <h4>Tradição e Natureza</h4>
+            <ul class="itinerario-lista">
+                <li><strong>Dia 1-3:</strong> A azáfama de Banguecoque, templos budistas e aula de cozinha tradicional tailandesa.</li>
+                <li><strong>Dia 4-8:</strong> Voo para as ilhas do sul para dias de relaxamento total, snorkel e passeios em barcos típicos.</li>
+            </ul>
+            <p class="nota-especial"><strong>Incluímos:</strong> Voos internos, alojamento sustentável e guia fluente em português.</p>`, 
         precoCategoria: 'alto' 
     }
 ];
