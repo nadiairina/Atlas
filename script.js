@@ -1,5 +1,5 @@
 /**
- * ATLAS VIAGENS - Script Consolidado Premium
+ * ATLAS VIAGENS - Script Consolidado Premium (V2 - High Impact)
  */
 
 // 1. Base de Dados de Pacotes
@@ -97,28 +97,24 @@ const pacotesData = [
     }
 ];
 
-// 2. Variáveis Globais e Galeria
+// 2. Variáveis Globais
 const imagensGaleria = ["france.png", "indo.png", "kyoto.png", "brasil.png", "pira.png", "aurora.png"];
 let indiceAtual = 0;
 let debounceTimer;
 
-// 3. Inicialização e Animações
+// 3. Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-    // Renderiza pacotes se estiver na página de serviços
     if (document.getElementById('pacotes-grid')) {
         renderizarPacotes(pacotesData);
     }
     
-    // Configurações Globais
     setupFAQAccordion();
     setupMobileMenu();
     setupModal();
-    observarElementos(); // Ativa animações de revelação
+    observarElementos(); 
     
-    // Eventos de Scroll
     window.addEventListener('scroll', handleHeaderScroll);
     
-    // Teclado para Lightbox
     document.addEventListener('keydown', (e) => { 
         if (e.key === "Escape") {
             fecharLightbox();
@@ -127,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* --- FUNÇÕES DE ANIMAÇÃO E UI --- */
+/* --- ANIMAÇÕES E UI --- */
 
 const observarElementos = () => {
     const observer = new IntersectionObserver((entries) => {
@@ -139,15 +135,16 @@ const observarElementos = () => {
                 }, delay);
             }
         });
-    }, { threshold: 0.15 }); // Limite de visibilidade para ativar
+    }, { threshold: 0.1 });
 
-    const targets = document.querySelectorAll('.pacote-card, .mosaico-item, .hero-content, .cta-final-galeria, .gallery-header, .faq-item');
-    let delay = 0; // Começa o delay
-    targets.forEach(el => {
+    // Seleciona todos os elementos que devem "nascer" suavemente na página
+    const targets = document.querySelectorAll('.pacote-card, .mosaico-item, .hero-content, .gallery-header, .faq-item, .section-title');
+    
+    targets.forEach((el, index) => {
         el.classList.add('reveal');
-        el.dataset.delay = delay; // Guarda o delay como um atributo de dados
+        // Cria um efeito de cascata (100ms entre cada elemento)
+        el.dataset.delay = (index % 4) * 100; 
         observer.observe(el);
-        delay += 100; // Incrementa o delay para o próximo elemento (100ms)
     });
 };
 
@@ -160,7 +157,7 @@ const handleHeaderScroll = () => {
     }
 };
 
-/* --- GESTÃO DE PACOTES E FILTROS --- */
+/* --- RENDERIZAÇÃO E FILTROS --- */
 
 function renderizarPacotes(pacotes) {
     const container = document.getElementById('pacotes-grid');
@@ -183,6 +180,8 @@ function renderizarPacotes(pacotes) {
         `;
         container.appendChild(card);
     });
+    // Re-observar novos elementos renderizados
+    observarElementos();
 }
 
 function filtrarPacotes() {
@@ -202,7 +201,7 @@ function handleSearch() {
     debounceTimer = setTimeout(() => filtrarPacotes(), 300);
 }
 
-/* --- MODAL E LIGHTBOX --- */
+/* --- MODAL (ROTEIROS) - BANNER GRANDE --- */
 
 function mostrarDetalhes(id) {
     const pacote = pacotesData.find(p => p.id === id);
@@ -211,13 +210,16 @@ function mostrarDetalhes(id) {
 
     if (modal && body) {
         body.innerHTML = `
-            <div class="modal-header-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('${pacote.imagem}'); height: 250px; background-size: cover; background-position: center;"></div>
-            <div style="padding: 30px;">
-                <h2 style="color: var(--primary-color);">${pacote.destino}</h2>
-                <div class="itinerary-wrapper">${pacote.detalhes}</div>
-                <div style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #eee; padding-top: 20px;">
-                    <span style="font-size: 1.4rem; font-weight: bold;">Investimento: ${pacote.preco}€</span>
-                    <a href="contacto.html?destino=${encodeURIComponent(pacote.destino)}" class="cta-button">Personalizar Viagem</a>
+            <div class="modal-header-image" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('${pacote.imagem}'); height: 450px; background-size: cover; background-position: center; width: 100%;"></div>
+            
+            <div style="padding: 40px;">
+                <h2 style="color: var(--primary-color); font-size: 2.2rem; margin-bottom: 20px;">${pacote.destino}</h2>
+                <div class="itinerary-wrapper" style="font-size: 1.1rem;">
+                    ${pacote.detalhes}
+                </div>
+                <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #f0f0f0; padding-top: 30px;">
+                    <span style="font-size: 1.6rem; font-weight: bold; color: var(--dark-bg);">Total: ${pacote.preco}€</span>
+                    <a href="contacto.html?destino=${encodeURIComponent(pacote.destino)}" class="cta-button">Reservar Experiência</a>
                 </div>
             </div>
         `;
@@ -242,7 +244,8 @@ function setupModal() {
     };
 }
 
-// Funções da Galeria
+/* --- LIGHTBOX (GALERIA) --- */
+
 function abrirLightbox(index) {
     indiceAtual = index;
     const lightbox = document.getElementById('lightbox');
@@ -267,14 +270,24 @@ function mudarImagem(direcao) {
     document.getElementById('img-grande').src = imagensGaleria[indiceAtual];
 }
 
-/* --- UTILITÁRIOS --- */
+/* --- ACORDEÃO E MENU --- */
 
 function setupFAQAccordion() {
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const answer = question.nextElementSibling;
-            question.setAttribute('aria-expanded', question.getAttribute('aria-expanded') !== 'true');
-            if (answer) answer.classList.toggle('hidden');
+            const isOpen = question.getAttribute('aria-expanded') === 'true';
+            
+            // Fecha outros abertos
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.setAttribute('aria-expanded', 'false');
+                q.nextElementSibling?.classList.add('hidden');
+            });
+
+            if (!isOpen) {
+                question.setAttribute('aria-expanded', 'true');
+                answer?.classList.remove('hidden');
+            }
         });
     });
 }
@@ -283,6 +296,9 @@ function setupMobileMenu() {
     const toggle = document.getElementById('menu-toggle');
     const nav = document.querySelector('header nav');
     if (toggle && nav) {
-        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            toggle.classList.toggle('is-active');
+        });
     }
 }
