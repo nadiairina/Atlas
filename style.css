@@ -2516,3 +2516,30 @@ header a:hover, header a.active {
     margin-left: -50vw;
     margin-right: -50vw;
 }
+/* Forçar Banners a ocupar toda a largura (Full Width) */
+.gallery-header, .services-header, .contact-header, .hero-section {
+    width: 100vw;               /* Ocupa 100% da largura do ecrã */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;         /* Técnica para sair de dentro do container */
+    margin-right: -50vw;
+    height: 70vh;               /* Altura generosa (70% do ecrã) */
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover !important;
+    background-position: center !important;
+    margin-top: 0;
+    margin-bottom: 60px;        /* Espaço para o conteúdo que vem abaixo */
+}
+
+/* Ajuste do texto dentro dos banners para não ficar colado às bordas */
+.gallery-header .container, 
+.services-header .container, 
+.contact-header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
