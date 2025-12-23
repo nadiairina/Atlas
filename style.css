@@ -2663,3 +2663,43 @@ body {
 body {
     overflow-x: hidden;
 }
+/* ============================================================
+   CORREÇÃO FINAL DE EMERGÊNCIA - BANNERS E CORES
+   ============================================================ */
+
+/* 1. Força todos os banners a serem gigantes (Full Width) */
+#hero, .gallery-header, .services-header, .contact-header, #servicos-banner {
+    width: 100vw !important;
+    height: 75vh !important;
+    min-height: 450px !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* 2. Força os títulos dos banners a serem brancos (Mata o Roxo) */
+#hero h1, .gallery-header h1, .services-header h1, .contact-header h1, #servicos-banner h1,
+#hero p, .gallery-header p, .services-header p, .contact-header p, #servicos-banner p {
+    color: white !important;
+    text-align: center !important;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6) !important;
+}
+
+/* 3. Garante que os títulos h1 dentro do banner são grandes */
+#hero h1, .gallery-header h1, .services-header h1, .contact-header h1 {
+    font-size: 3.5rem !important;
+    margin-bottom: 10px !important;
+    line-height: 1.2 !important;
+}
+
+/* 4. Limpeza de segurança para evitar barras de scroll lateral */
+body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+}
