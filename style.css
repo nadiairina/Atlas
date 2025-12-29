@@ -2715,3 +2715,18 @@ body {
     cursor: pointer;
     padding: 10px; /* Aumenta a área de toque */
 }
+.close-btn {
+    position: absolute; /* Garante que fica sobre o conteúdo */
+    top: 20px;
+    right: 20px;
+    z-index: 1001; /* Deve ser maior que o z-index do modal-content */
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+    /* Adiciona isto para facilitar o toque no telemóvel */
+    width: 45px; 
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
