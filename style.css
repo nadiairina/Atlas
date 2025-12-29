@@ -2706,3 +2706,12 @@ body {
 .logo-link:hover .logo-img {
     transform: scale(1.05); /* Um aumento muito subtil */
 }
+/* No teu CSS */
+.botao-fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 9999; /* Garante que está no topo */
+    cursor: pointer;
+    padding: 10px; /* Aumenta a área de toque */
+}
